@@ -5,6 +5,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.index.Indexed;
 import jakarta.validation.constraints.NotNull;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Data
@@ -18,8 +19,30 @@ public class Transaction {
     private String transactionId;
     
     @NotNull
-    private LocalDateTime timestamp;
+    private String senderCustomerNumber;
     
     @NotNull
-    private String randomString;
+    private String receiverCustomerNumber;
+    
+    @NotNull
+    private String senderBranchCode;
+    
+    @NotNull
+    private String receiverBranchCode;
+    
+    @NotNull
+    private BigDecimal amount;
+    
+    @NotNull
+    private String currency;
+    
+    @NotNull
+    private LocalDateTime timestamp;
+    
+    private boolean isFraudulent;
+    private String fraudReason;
+    
+    // TransactionIdentifier formatı: 
+    // YYYYMMDD_SENDER-BRANCH_SENDER-CUSTOMER_SEQUENCE
+    private String transactionIdentifier;
 } 

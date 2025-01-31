@@ -1,0 +1,41 @@
+[
+  {
+    "customerNumber": "10000001",
+    "firstName": "William",
+    "lastName": "Jensen",
+    "identityNumber": "0101901234",
+    "birthDate": "1990-05-15",
+    "phone": "4528123456",
+    "email": "william.jensen@email.dk",
+    "address": "Nørrebrogade 45, 2200 Copenhagen",
+    "branchCode": "CPH001",
+    "registrationDate": "2020-01-15",
+    "isActive": true
+  },
+  {
+    "customerNumber": "10000002",
+    "firstName": "Emma",
+    "lastName": "Nielsen",
+    "identityNumber": "0202892345",
+    "birthDate": "1989-08-20",
+    "phone": "4528234567",
+    "email": "emma.nielsen@email.dk",
+    "address": "Østerbrogade 67, 2100 Copenhagen",
+    "branchCode": "CPH002",
+    "registrationDate": "2020-02-01",
+    "isActive": true
+  },
+  {
+    "customerNumber": "10000003",
+    "firstName": "Noah",
+    "lastName": "Hansen",
+    "identityNumber": "0303943456",
+    "birthDate": "1994-03-10",
+    "phone": "4528345678",
+    "email": "noah.hansen@email.dk",
+    "address": "Vesterbrogade 89, 1620 Copenhagen",
+    "branchCode": "CPH003",
+    "registrationDate": "2020-03-15",
+    "isActive": true
+  }
+] 

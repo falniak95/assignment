@@ -24,6 +24,7 @@
         <java.version>17</java.version>
         <spring-kafka.version>3.0.11</spring-kafka.version>
         <lombok.version>1.18.30</lombok.version>
+        <reactor-core.version>3.5.10</reactor-core.version>
     </properties>
 
     <dependencyManagement>
@@ -38,6 +39,11 @@
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
                 <optional>true</optional>
+            </dependency>
+            <dependency>
+                <groupId>io.projectreactor</groupId>
+                <artifactId>reactor-core</artifactId>
+                <version>${reactor-core.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

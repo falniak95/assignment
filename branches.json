@@ -1,0 +1,92 @@
+[
+  {
+    "branchCode": "CPH001",
+    "name": "Nørrebro Branch",
+    "city": "Copenhagen",
+    "district": "Nørrebro",
+    "address": "Nørrebrogade 123",
+    "phone": "4535123456",
+    "isActive": true
+  },
+  {
+    "branchCode": "CPH002",
+    "name": "Østerbro Branch",
+    "city": "Copenhagen",
+    "district": "Østerbro",
+    "address": "Østerbrogade 45",
+    "phone": "4535234567",
+    "isActive": true
+  },
+  {
+    "branchCode": "CPH003",
+    "name": "Vesterbro Branch",
+    "city": "Copenhagen",
+    "district": "Vesterbro",
+    "address": "Vesterbrogade 78",
+    "phone": "4535345678",
+    "isActive": true
+  },
+  {
+    "branchCode": "CPH004",
+    "name": "Frederiksberg Branch",
+    "city": "Copenhagen",
+    "district": "Frederiksberg",
+    "address": "Frederiksberggade 90",
+    "phone": "4535456789",
+    "isActive": true
+  },
+  {
+    "branchCode": "CPH005",
+    "name": "Amager Branch",
+    "city": "Copenhagen",
+    "district": "Amager",
+    "address": "Amagerbrogade 56",
+    "phone": "4535567890",
+    "isActive": true
+  },
+  {
+    "branchCode": "CPH006",
+    "name": "Valby Branch",
+    "city": "Copenhagen",
+    "district": "Valby",
+    "address": "Valby Langgade 34",
+    "phone": "4535678901",
+    "isActive": true
+  },
+  {
+    "branchCode": "CPH007",
+    "name": "Islands Brygge Branch",
+    "city": "Copenhagen",
+    "district": "Islands Brygge",
+    "address": "Islands Brygge 23",
+    "phone": "4535789012",
+    "isActive": true
+  },
+  {
+    "branchCode": "CPH008",
+    "name": "Christianshavn Branch",
+    "city": "Copenhagen",
+    "district": "Christianshavn",
+    "address": "Torvegade 45",
+    "phone": "4535890123",
+    "isActive": true
+  },
+  {
+    "branchCode": "CPH009",
+    "name": "Sydhavn Branch",
+    "city": "Copenhagen",
+    "district": "Sydhavn",
+    "address": "Sydhavns Plads 12",
+    "phone": "4535901234",
+    "isActive": true
+  },
+  {
+    "branchCode": "CPH010",
+    "name": "Nordhavn Branch",
+    "city": "Copenhagen",
+    "district": "Nordhavn",
+    "address": "Nordhavn Station 67",
+    "phone": "4535012345",
+    "isActive": true
+  }
+] 
