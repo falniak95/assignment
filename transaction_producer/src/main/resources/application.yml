@@ -3,6 +3,11 @@ spring:
     active: dev
   application:
     name: transaction-producer
+  kafka:
+    producer:
+      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
 
 server:
   port: 8080
@@ -23,8 +28,10 @@ spring:
       on-profile: dev
   data:
     mongodb:
-      uri: mongodb://assignment-admin:uF*3lviO0iaZcKTT479_t@194.62.251.241:5415/dbank-assignment
+      uri: mongodb://assignment-admin:uF*3lviO0iaZcKTT479_t@194.62.251.241:5415/dbank-assignment?authSource=admin&authMechanism=SCRAM-SHA-1
       database: dbank-assignment
+      auto-index-creation: true
+      uuid-representation: standard
 
 logging:
   file:
@@ -39,7 +46,27 @@ spring:
     mongodb:
       uri: mongodb://assignment-admin:uF*3lviO0iaZcKTT479_t@dbank-assignment-mongodb:5415/dbank-assignment
       database: dbank-assignment
+  kafka:
+    producer:
+      bootstrap-servers: kafka:9092
 
 logging:
   file:
-    name: /var/log/transaction-producer.log 
+    name: /var/log/transaction-producer.log
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,metrics,mongo
+  endpoint:
+    health:
+      show-details: always
+      probes:
+        enabled: true
+    metrics:
+      enabled: true
+
+mongodb:
+  embedded:
+    version: 4.0.21 

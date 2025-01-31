@@ -44,3 +44,460 @@ Unconditional classes:
 
 
 
+2025-01-31T14:03:48.667+03:00  INFO 39602 --- [transaction-producer] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-01-31T14:03:48.676+03:00  INFO 39602 --- [transaction-producer] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-01-31T14:04:09.496+03:00  INFO 12088 --- [transaction-producer] [restartedMain] c.f.t.TransactionProducerApplication     : Starting TransactionProducerApplication using Java 17.0.6 with PID 12088 (/Users/furkanalniak/Documents/assignment/transaction_producer/target/classes started by furkanalniak in /Users/furkanalniak/Documents/assignment)
+2025-01-31T14:04:09.498+03:00  INFO 12088 --- [transaction-producer] [restartedMain] c.f.t.TransactionProducerApplication     : The following 1 profile is active: "dev"
+2025-01-31T14:04:09.564+03:00  INFO 12088 --- [transaction-producer] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-01-31T14:04:09.565+03:00  INFO 12088 --- [transaction-producer] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-01-31T14:04:10.393+03:00  INFO 12088 --- [transaction-producer] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2025-01-31T14:04:10.410+03:00  INFO 12088 --- [transaction-producer] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 0 MongoDB repository interfaces.
+2025-01-31T14:04:10.834+03:00  INFO 12088 --- [transaction-producer] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-01-31T14:04:10.842+03:00  INFO 12088 --- [transaction-producer] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-01-31T14:04:10.842+03:00  INFO 12088 --- [transaction-producer] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-01-31T14:04:10.866+03:00  INFO 12088 --- [transaction-producer] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-01-31T14:04:10.866+03:00  INFO 12088 --- [transaction-producer] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1301 ms
+2025-01-31T14:04:11.359+03:00  INFO 12088 --- [transaction-producer] [restartedMain] org.mongodb.driver.client                : MongoClient with metadata {"driver": {"name": "mongo-java-driver|sync|spring-boot", "version": "5.2.1"}, "os": {"type": "Darwin", "name": "Mac OS X", "architecture": "x86_64", "version": "15.1.1"}, "platform": "Java/JetBrains s.r.o./17.0.6+10-b829.9"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=MongoCredential{mechanism=null, userName='assignment-admin', source='dbank-assignment', password=<hidden>, mechanismProperties=<hidden>}, transportSettings=null, commandListeners=[io.micrometer.core.instrument.binder.mongodb.MongoMetricsCommandListener@39c2cafd], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@787e9b7a, com.mongodb.Jep395RecordCodecProvider@34262764, com.mongodb.KotlinCodecProvider@2249bcd0]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[194.62.251.241:5415], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[io.micrometer.core.instrument.binder.mongodb.MongoMetricsConnectionPoolListener@df31f46], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverMonitoringMode=AUTO, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=JAVA_LEGACY, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null, timeoutMS=null}
+2025-01-31T14:04:11.685+03:00  INFO 12088 --- [transaction-producer] [cluster-ClusterId{value='679cae2b0240193c245d5a87', description='null'}-194.62.251.241:5415] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=194.62.251.241:5415, type=STANDALONE, cryptd=false, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=90839584, minRoundTripTimeNanos=0}
+2025-01-31T14:04:11.773+03:00  INFO 12088 --- [transaction-producer] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-01-31T14:04:11.781+03:00  INFO 12088 --- [transaction-producer] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-01-31T14:04:11.843+03:00  INFO 12088 --- [transaction-producer] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-01-31T14:04:11.866+03:00  INFO 12088 --- [transaction-producer] [restartedMain] c.f.t.TransactionProducerApplication     : Started TransactionProducerApplication in 3.09 seconds (process running for 4.01)
+2025-01-31T14:04:12.210+03:00  INFO 12088 --- [transaction-producer] [RMI TCP Connection(2)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-01-31T14:04:12.211+03:00  INFO 12088 --- [transaction-producer] [RMI TCP Connection(2)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-01-31T14:04:12.212+03:00  INFO 12088 --- [transaction-producer] [RMI TCP Connection(2)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-01-31T14:04:12.598+03:00  WARN 12088 --- [transaction-producer] [RMI TCP Connection(1)-127.0.0.1] o.s.b.a.data.mongo.MongoHealthIndicator  : MongoDB health check failed
+
+org.springframework.data.mongodb.UncategorizedMongoDbException: Exception authenticating MongoCredential{mechanism=SCRAM-SHA-1, userName='assignment-admin', source='dbank-assignment', password=<hidden>, mechanismProperties=<hidden>}
+	at org.springframework.data.mongodb.core.MongoExceptionTranslator.doTranslateException(MongoExceptionTranslator.java:151) ~[spring-data-mongodb-4.4.2.jar:4.4.2]
+	at org.springframework.data.mongodb.core.MongoExceptionTranslator.translateExceptionIfPossible(MongoExceptionTranslator.java:74) ~[spring-data-mongodb-4.4.2.jar:4.4.2]
+	at org.springframework.data.mongodb.core.MongoTemplate.potentiallyConvertRuntimeException(MongoTemplate.java:3009) ~[spring-data-mongodb-4.4.2.jar:4.4.2]
+	at org.springframework.data.mongodb.core.MongoTemplate.execute(MongoTemplate.java:584) ~[spring-data-mongodb-4.4.2.jar:4.4.2]
+	at org.springframework.data.mongodb.core.MongoTemplate.executeCommand(MongoTemplate.java:516) ~[spring-data-mongodb-4.4.2.jar:4.4.2]
+	at org.springframework.boot.actuate.data.mongo.MongoHealthIndicator.doHealthCheck(MongoHealthIndicator.java:46) ~[spring-boot-actuator-3.4.2.jar:3.4.2]
+	at org.springframework.boot.actuate.health.AbstractHealthIndicator.health(AbstractHealthIndicator.java:82) ~[spring-boot-actuator-3.4.2.jar:3.4.2]
+	at org.springframework.boot.actuate.health.HealthIndicator.getHealth(HealthIndicator.java:37) ~[spring-boot-actuator-3.4.2.jar:3.4.2]
+	at org.springframework.boot.actuate.health.HealthEndpoint.getHealth(HealthEndpoint.java:82) ~[spring-boot-actuator-3.4.2.jar:3.4.2]
+	at org.springframework.boot.actuate.health.HealthEndpoint.getHealth(HealthEndpoint.java:41) ~[spring-boot-actuator-3.4.2.jar:3.4.2]
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getLoggedHealth(HealthEndpointSupport.java:172) ~[spring-boot-actuator-3.4.2.jar:3.4.2]
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getContribution(HealthEndpointSupport.java:145) ~[spring-boot-actuator-3.4.2.jar:3.4.2]
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getAggregateContribution(HealthEndpointSupport.java:156) ~[spring-boot-actuator-3.4.2.jar:3.4.2]
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getContribution(HealthEndpointSupport.java:141) ~[spring-boot-actuator-3.4.2.jar:3.4.2]
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getHealth(HealthEndpointSupport.java:110) ~[spring-boot-actuator-3.4.2.jar:3.4.2]
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getHealth(HealthEndpointSupport.java:81) ~[spring-boot-actuator-3.4.2.jar:3.4.2]
+	at org.springframework.boot.actuate.health.HealthEndpoint.health(HealthEndpoint.java:76) ~[spring-boot-actuator-3.4.2.jar:3.4.2]
+	at org.springframework.boot.actuate.health.HealthEndpoint.health(HealthEndpoint.java:66) ~[spring-boot-actuator-3.4.2.jar:3.4.2]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:281) ~[spring-core-6.2.2.jar:6.2.2]
+	at org.springframework.boot.actuate.endpoint.invoke.reflect.ReflectiveOperationInvoker.invoke(ReflectiveOperationInvoker.java:74) ~[spring-boot-actuator-3.4.2.jar:3.4.2]
+	at org.springframework.boot.actuate.endpoint.annotation.AbstractDiscoveredOperation.invoke(AbstractDiscoveredOperation.java:60) ~[spring-boot-actuator-3.4.2.jar:3.4.2]
+	at org.springframework.boot.actuate.endpoint.jmx.EndpointMBean.invoke(EndpointMBean.java:124) ~[spring-boot-actuator-3.4.2.jar:3.4.2]
+	at org.springframework.boot.actuate.endpoint.jmx.EndpointMBean.invoke(EndpointMBean.java:97) ~[spring-boot-actuator-3.4.2.jar:3.4.2]
+	at java.management/com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.invoke(DefaultMBeanServerInterceptor.java:814) ~[na:na]
+	at java.management/com.sun.jmx.mbeanserver.JmxMBeanServer.invoke(JmxMBeanServer.java:802) ~[na:na]
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.doOperation(RMIConnectionImpl.java:1472) ~[na:na]
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl$PrivilegedOperation.run(RMIConnectionImpl.java:1310) ~[na:na]
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.doPrivilegedOperation(RMIConnectionImpl.java:1405) ~[na:na]
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.invoke(RMIConnectionImpl.java:829) ~[na:na]
+	at java.base/jdk.internal.reflect.GeneratedMethodAccessor14.invoke(Unknown Source) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:360) ~[na:na]
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:200) ~[na:na]
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:197) ~[na:na]
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:712) ~[na:na]
+	at java.rmi/sun.rmi.transport.Transport.serviceCall(Transport.java:196) ~[na:na]
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:587) ~[na:na]
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:828) ~[na:na]
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:705) ~[na:na]
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399) ~[na:na]
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:704) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: com.mongodb.MongoSecurityException: Exception authenticating MongoCredential{mechanism=SCRAM-SHA-1, userName='assignment-admin', source='dbank-assignment', password=<hidden>, mechanismProperties=<hidden>}
+	at com.mongodb.internal.connection.SaslAuthenticator.wrapException(SaslAuthenticator.java:300) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.connection.SaslAuthenticator.getNextSaslResponse(SaslAuthenticator.java:143) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.connection.SaslAuthenticator.lambda$authenticate$0(SaslAuthenticator.java:71) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.connection.SaslAuthenticator.doAsSubject(SaslAuthenticator.java:307) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.connection.SaslAuthenticator.authenticate(SaslAuthenticator.java:67) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.connection.DefaultAuthenticator.authenticate(DefaultAuthenticator.java:53) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnectionInitializer.finishHandshake(InternalStreamConnectionInitializer.java:89) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.open(InternalStreamConnection.java:238) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.connection.UsageTrackingInternalConnection.open(UsageTrackingInternalConnection.java:53) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.connection.DefaultConnectionPool$PooledConnection.open(DefaultConnectionPool.java:632) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.connection.DefaultConnectionPool$OpenConcurrencyLimiter.openWithConcurrencyLimit(DefaultConnectionPool.java:979) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.connection.DefaultConnectionPool$OpenConcurrencyLimiter.openOrGetAvailable(DefaultConnectionPool.java:909) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.connection.DefaultConnectionPool.get(DefaultConnectionPool.java:199) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.connection.DefaultServer.getConnection(DefaultServer.java:94) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.binding.ClusterBinding$ClusterBindingConnectionSource.getConnection(ClusterBinding.java:138) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.client.internal.ClientSessionBinding$SessionBindingConnectionSource.getConnection(ClientSessionBinding.java:161) ~[mongodb-driver-sync-5.2.1.jar:na]
+	at com.mongodb.internal.operation.SyncOperationHelper.withSuppliedResource(SyncOperationHelper.java:148) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.operation.SyncOperationHelper.lambda$withSourceAndConnection$1(SyncOperationHelper.java:130) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.operation.SyncOperationHelper.withSuppliedResource(SyncOperationHelper.java:156) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.operation.SyncOperationHelper.withSourceAndConnection(SyncOperationHelper.java:129) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.operation.SyncOperationHelper.lambda$executeRetryableRead$4(SyncOperationHelper.java:195) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.operation.SyncOperationHelper.lambda$decorateReadWithRetries$13(SyncOperationHelper.java:317) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.async.function.RetryingSyncSupplier.get(RetryingSyncSupplier.java:67) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.operation.SyncOperationHelper.executeRetryableRead(SyncOperationHelper.java:201) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.operation.SyncOperationHelper.executeRetryableRead(SyncOperationHelper.java:180) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.operation.CommandReadOperation.execute(CommandReadOperation.java:52) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.client.internal.MongoClusterImpl$OperationExecutorImpl.execute(MongoClusterImpl.java:358) ~[mongodb-driver-sync-5.2.1.jar:na]
+	at com.mongodb.client.internal.MongoDatabaseImpl.executeCommand(MongoDatabaseImpl.java:215) ~[mongodb-driver-sync-5.2.1.jar:na]
+	at com.mongodb.client.internal.MongoDatabaseImpl.runCommand(MongoDatabaseImpl.java:184) ~[mongodb-driver-sync-5.2.1.jar:na]
+	at com.mongodb.client.internal.MongoDatabaseImpl.runCommand(MongoDatabaseImpl.java:179) ~[mongodb-driver-sync-5.2.1.jar:na]
+	at org.springframework.data.mongodb.core.MongoTemplate.lambda$executeCommand$3(MongoTemplate.java:516) ~[spring-data-mongodb-4.4.2.jar:4.4.2]
+	at org.springframework.data.mongodb.core.MongoTemplate.execute(MongoTemplate.java:582) ~[spring-data-mongodb-4.4.2.jar:4.4.2]
+	... 45 common frames omitted
+Caused by: com.mongodb.MongoCommandException: Command failed with error 18 (AuthenticationFailed): 'Authentication failed.' on server 194.62.251.241:5415. The full response is {"ok": 0.0, "errmsg": "Authentication failed.", "code": 18, "codeName": "AuthenticationFailed"}
+	at com.mongodb.internal.connection.ProtocolHelper.getCommandFailureException(ProtocolHelper.java:210) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:520) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.sendAndReceiveInternal(InternalStreamConnection.java:448) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.lambda$sendAndReceive$0(InternalStreamConnection.java:375) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.sendAndReceive(InternalStreamConnection.java:378) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.connection.CommandHelper.sendAndReceive(CommandHelper.java:100) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.connection.CommandHelper.executeCommand(CommandHelper.java:49) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.connection.SaslAuthenticator.sendSaslStart(SaslAuthenticator.java:236) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.connection.SaslAuthenticator.getNextSaslResponse(SaslAuthenticator.java:141) ~[mongodb-driver-core-5.2.1.jar:na]
+	... 75 common frames omitted
+
+2025-01-31T14:04:14.673+03:00  INFO 12088 --- [transaction-producer] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-01-31T14:04:14.686+03:00  INFO 12088 --- [transaction-producer] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-01-31T14:18:42.980+03:00  INFO 14276 --- [transaction-producer] [restartedMain] c.f.t.TransactionProducerApplication     : Starting TransactionProducerApplication using Java 17.0.6 with PID 14276 (/Users/furkanalniak/Documents/assignment/transaction_producer/target/classes started by furkanalniak in /Users/furkanalniak/Documents/assignment)
+2025-01-31T14:18:42.984+03:00  INFO 14276 --- [transaction-producer] [restartedMain] c.f.t.TransactionProducerApplication     : The following 1 profile is active: "dev"
+2025-01-31T14:18:43.118+03:00  INFO 14276 --- [transaction-producer] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-01-31T14:18:43.118+03:00  INFO 14276 --- [transaction-producer] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-01-31T14:18:44.913+03:00  INFO 14276 --- [transaction-producer] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive MongoDB repositories in DEFAULT mode.
+2025-01-31T14:18:44.935+03:00  INFO 14276 --- [transaction-producer] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 0 Reactive MongoDB repository interfaces.
+2025-01-31T14:18:44.940+03:00  INFO 14276 --- [transaction-producer] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2025-01-31T14:18:44.944+03:00  INFO 14276 --- [transaction-producer] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 0 ms. Found 0 MongoDB repository interfaces.
+2025-01-31T14:18:45.333+03:00  INFO 14276 --- [transaction-producer] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-01-31T14:18:45.342+03:00  INFO 14276 --- [transaction-producer] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-01-31T14:18:45.342+03:00  INFO 14276 --- [transaction-producer] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-01-31T14:18:45.370+03:00  INFO 14276 --- [transaction-producer] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-01-31T14:18:45.370+03:00  INFO 14276 --- [transaction-producer] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2251 ms
+2025-01-31T14:18:45.872+03:00  INFO 14276 --- [transaction-producer] [restartedMain] org.mongodb.driver.client                : MongoClient with metadata {"driver": {"name": "mongo-java-driver|reactive-streams|spring-boot", "version": "5.2.1"}, "os": {"type": "Darwin", "name": "Mac OS X", "architecture": "x86_64", "version": "15.1.1"}, "platform": "Java/JetBrains s.r.o./17.0.6+10-b829.9"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=MongoCredential{mechanism=null, userName='assignment-admin', source='dbank-assignment', password=<hidden>, mechanismProperties=<hidden>}, transportSettings=null, commandListeners=[io.micrometer.core.instrument.binder.mongodb.MongoMetricsCommandListener@7a56be64], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@6173442d, com.mongodb.Jep395RecordCodecProvider@e09ddad, com.mongodb.KotlinCodecProvider@5907161b]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[194.62.251.241:5415], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[io.micrometer.core.instrument.binder.mongodb.MongoMetricsConnectionPoolListener@16ed26c1], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverMonitoringMode=AUTO, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=STANDARD, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null, timeoutMS=null}
+2025-01-31T14:18:45.955+03:00  INFO 14276 --- [transaction-producer] [restartedMain] org.mongodb.driver.client                : MongoClient with metadata {"driver": {"name": "mongo-java-driver|sync|spring-boot", "version": "5.2.1"}, "os": {"type": "Darwin", "name": "Mac OS X", "architecture": "x86_64", "version": "15.1.1"}, "platform": "Java/JetBrains s.r.o./17.0.6+10-b829.9"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=MongoCredential{mechanism=null, userName='assignment-admin', source='dbank-assignment', password=<hidden>, mechanismProperties=<hidden>}, transportSettings=null, commandListeners=[io.micrometer.core.instrument.binder.mongodb.MongoMetricsCommandListener@7a56be64], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@6173442d, com.mongodb.Jep395RecordCodecProvider@e09ddad, com.mongodb.KotlinCodecProvider@5907161b]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[194.62.251.241:5415], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[io.micrometer.core.instrument.binder.mongodb.MongoMetricsConnectionPoolListener@16ed26c1], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverMonitoringMode=AUTO, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=STANDARD, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null, timeoutMS=null}
+2025-01-31T14:18:46.303+03:00  WARN 14276 --- [transaction-producer] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2025-01-31T14:18:46.313+03:00  INFO 14276 --- [transaction-producer] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-01-31T14:18:46.376+03:00  INFO 14276 --- [transaction-producer] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-01-31T14:18:46.397+03:00  INFO 14276 --- [transaction-producer] [restartedMain] c.f.t.TransactionProducerApplication     : Started TransactionProducerApplication in 4.304 seconds (process running for 5.24)
+2025-01-31T14:18:46.539+03:00  INFO 14276 --- [transaction-producer] [cluster-ClusterId{value='679cb195487a1c7db2721511', description='null'}-194.62.251.241:5415] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=194.62.251.241:5415, type=STANDALONE, cryptd=false, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=197240042, minRoundTripTimeNanos=0}
+2025-01-31T14:18:46.749+03:00  INFO 14276 --- [transaction-producer] [cluster-ClusterId{value='679cb195487a1c7db2721512', description='null'}-194.62.251.241:5415] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=194.62.251.241:5415, type=STANDALONE, cryptd=false, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=283977083, minRoundTripTimeNanos=0}
+2025-01-31T14:18:47.029+03:00  INFO 14276 --- [transaction-producer] [RMI TCP Connection(1)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-01-31T14:18:47.030+03:00  INFO 14276 --- [transaction-producer] [RMI TCP Connection(1)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-01-31T14:18:47.032+03:00  INFO 14276 --- [transaction-producer] [RMI TCP Connection(1)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-01-31T14:18:47.384+03:00  WARN 14276 --- [transaction-producer] [Thread-9] o.s.b.a.d.m.MongoReactiveHealthIndicator : Mongo health check failed
+
+org.springframework.data.mongodb.UncategorizedMongoDbException: Exception authenticating MongoCredential{mechanism=SCRAM-SHA-1, userName='assignment-admin', source='dbank-assignment', password=<hidden>, mechanismProperties=<hidden>}
+	at org.springframework.data.mongodb.core.MongoExceptionTranslator.doTranslateException(MongoExceptionTranslator.java:151) ~[spring-data-mongodb-4.4.2.jar:4.4.2]
+	at org.springframework.data.mongodb.core.MongoExceptionTranslator.translateExceptionIfPossible(MongoExceptionTranslator.java:74) ~[spring-data-mongodb-4.4.2.jar:4.4.2]
+	at org.springframework.data.mongodb.core.ReactiveMongoTemplate.potentiallyConvertRuntimeException(ReactiveMongoTemplate.java:2768) ~[spring-data-mongodb-4.4.2.jar:4.4.2]
+	at org.springframework.data.mongodb.core.ReactiveMongoTemplate.lambda$translateException$99(ReactiveMongoTemplate.java:2751) ~[spring-data-mongodb-4.4.2.jar:4.4.2]
+	at reactor.core.publisher.Flux.lambda$onErrorMap$28(Flux.java:7318) ~[reactor-core-3.7.2.jar:3.7.2]
+	at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:94) ~[reactor-core-3.7.2.jar:3.7.2]
+	at reactor.core.publisher.MonoFlatMapMany$FlatMapManyInner.onError(MonoFlatMapMany.java:256) ~[reactor-core-3.7.2.jar:3.7.2]
+	at reactor.core.publisher.MonoNext$NextSubscriber.onError(MonoNext.java:93) ~[reactor-core-3.7.2.jar:3.7.2]
+	at reactor.core.publisher.MonoNext$NextSubscriber.onError(MonoNext.java:93) ~[reactor-core-3.7.2.jar:3.7.2]
+	at reactor.core.publisher.MonoFlatMap$FlatMapMain.secondError(MonoFlatMap.java:241) ~[reactor-core-3.7.2.jar:3.7.2]
+	at reactor.core.publisher.MonoFlatMap$FlatMapInner.onError(MonoFlatMap.java:315) ~[reactor-core-3.7.2.jar:3.7.2]
+	at reactor.core.publisher.MonoPeekTerminal$MonoTerminalPeekSubscriber.onError(MonoPeekTerminal.java:258) ~[reactor-core-3.7.2.jar:3.7.2]
+	at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205) ~[reactor-core-3.7.2.jar:3.7.2]
+	at com.mongodb.reactivestreams.client.internal.MongoOperationPublisher.lambda$sinkToCallback$37(MongoOperationPublisher.java:586) ~[mongodb-driver-reactivestreams-5.2.1.jar:na]
+	at com.mongodb.reactivestreams.client.internal.OperationExecutorImpl.lambda$execute$1(OperationExecutorImpl.java:96) ~[mongodb-driver-reactivestreams-5.2.1.jar:na]
+	at com.mongodb.internal.async.ErrorHandlingResultCallback.onResult(ErrorHandlingResultCallback.java:47) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.async.function.AsyncCallbackSupplier.lambda$whenComplete$1(AsyncCallbackSupplier.java:97) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.async.function.RetryingAsyncCallbackSupplier$RetryingCallback.onResult(RetryingAsyncCallbackSupplier.java:121) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.async.ErrorHandlingResultCallback.onResult(ErrorHandlingResultCallback.java:47) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.async.function.AsyncCallbackSupplier.lambda$whenComplete$1(AsyncCallbackSupplier.java:97) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.async.ErrorHandlingResultCallback.onResult(ErrorHandlingResultCallback.java:47) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.operation.AsyncOperationHelper.lambda$withAsyncSuppliedResource$3(AsyncOperationHelper.java:134) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.connection.DefaultServer.lambda$getConnectionAsync$0(DefaultServer.java:125) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.async.ErrorHandlingResultCallback.onResult(ErrorHandlingResultCallback.java:47) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.connection.DefaultConnectionPool.lambda$getAsync$0(DefaultConnectionPool.java:220) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.connection.DefaultConnectionPool$OpenConcurrencyLimiter.lambda$openWithConcurrencyLimitAsync$0(DefaultConnectionPool.java:1024) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.connection.DefaultConnectionPool$PooledConnection.lambda$openAsync$0(DefaultConnectionPool.java:647) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.connection.UsageTrackingInternalConnection.lambda$openAsync$0(UsageTrackingInternalConnection.java:65) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection$1.lambda$completed$0(InternalStreamConnection.java:274) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnectionInitializer.lambda$finishHandshakeAsync$1(InternalStreamConnectionInitializer.java:129) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.async.ErrorHandlingResultCallback.onResult(ErrorHandlingResultCallback.java:47) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.connection.SaslAuthenticator.lambda$getNextSaslResponseAsync$2(SaslAuthenticator.java:156) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.connection.SaslAuthenticator.lambda$sendSaslStartAsync$5(SaslAuthenticator.java:261) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.connection.CommandHelper.lambda$executeCommandAsync$0(CommandHelper.java:73) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.async.AsyncSupplier.lambda$finish$0(AsyncSupplier.java:73) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.async.SingleResultCallback.completeExceptionally(SingleResultCallback.java:71) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.async.AsyncSupplier.lambda$onErrorIf$5(AsyncSupplier.java:144) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.async.AsyncSupplier.lambda$finish$0(AsyncSupplier.java:73) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.async.AsyncSupplier.lambda$finish$0(AsyncSupplier.java:73) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.async.AsyncSupplier.lambda$finish$0(AsyncSupplier.java:73) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.lambda$sendCommandMessageAsync$9(InternalStreamConnection.java:630) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection$MessageHeaderCallback$MessageCallback.onResult(InternalStreamConnection.java:946) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection$MessageHeaderCallback$MessageCallback.onResult(InternalStreamConnection.java:909) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection$2.completed(InternalStreamConnection.java:743) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection$2.completed(InternalStreamConnection.java:740) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.connection.AsynchronousChannelStream$BasicCompletionHandler.completed(AsynchronousChannelStream.java:240) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.connection.AsynchronousChannelStream$BasicCompletionHandler.completed(AsynchronousChannelStream.java:220) ~[mongodb-driver-core-5.2.1.jar:na]
+	at java.base/sun.nio.ch.Invoker.invokeUnchecked(Invoker.java:129) ~[na:na]
+	at java.base/sun.nio.ch.Invoker.invokeDirect(Invoker.java:160) ~[na:na]
+	at java.base/sun.nio.ch.UnixAsynchronousSocketChannelImpl.implRead(UnixAsynchronousSocketChannelImpl.java:573) ~[na:na]
+	at java.base/sun.nio.ch.AsynchronousSocketChannelImpl.read(AsynchronousSocketChannelImpl.java:276) ~[na:na]
+	at java.base/sun.nio.ch.AsynchronousSocketChannelImpl.read(AsynchronousSocketChannelImpl.java:297) ~[na:na]
+	at com.mongodb.internal.connection.AsynchronousSocketChannelStream$AsynchronousSocketChannelAdapter.read(AsynchronousSocketChannelStream.java:144) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.connection.AsynchronousChannelStream.readAsync(AsynchronousChannelStream.java:116) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.readAsync(InternalStreamConnection.java:740) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.access$500(InternalStreamConnection.java:103) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection$MessageHeaderCallback.onResult(InternalStreamConnection.java:898) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection$MessageHeaderCallback.onResult(InternalStreamConnection.java:880) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection$2.completed(InternalStreamConnection.java:743) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection$2.completed(InternalStreamConnection.java:740) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.connection.AsynchronousChannelStream$BasicCompletionHandler.completed(AsynchronousChannelStream.java:240) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.connection.AsynchronousChannelStream$BasicCompletionHandler.completed(AsynchronousChannelStream.java:220) ~[mongodb-driver-core-5.2.1.jar:na]
+	at java.base/sun.nio.ch.Invoker.invokeUnchecked(Invoker.java:129) ~[na:na]
+	at java.base/sun.nio.ch.UnixAsynchronousSocketChannelImpl.finishRead(UnixAsynchronousSocketChannelImpl.java:447) ~[na:na]
+	at java.base/sun.nio.ch.UnixAsynchronousSocketChannelImpl.finish(UnixAsynchronousSocketChannelImpl.java:195) ~[na:na]
+	at java.base/sun.nio.ch.UnixAsynchronousSocketChannelImpl.onEvent(UnixAsynchronousSocketChannelImpl.java:217) ~[na:na]
+	at java.base/sun.nio.ch.KQueuePort$EventHandlerTask.run(KQueuePort.java:312) ~[na:na]
+	at java.base/sun.nio.ch.AsynchronousChannelGroupImpl$1.run(AsynchronousChannelGroupImpl.java:113) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: com.mongodb.MongoSecurityException: Exception authenticating MongoCredential{mechanism=SCRAM-SHA-1, userName='assignment-admin', source='dbank-assignment', password=<hidden>, mechanismProperties=<hidden>}
+	at com.mongodb.internal.connection.SaslAuthenticator.wrapException(SaslAuthenticator.java:300) ~[mongodb-driver-core-5.2.1.jar:na]
+	... 40 common frames omitted
+Caused by: com.mongodb.MongoCommandException: Command failed with error 18 (AuthenticationFailed): 'Authentication failed.' on server 194.62.251.241:5415. The full response is {"ok": 0.0, "errmsg": "Authentication failed.", "code": 18, "codeName": "AuthenticationFailed"}
+	at com.mongodb.internal.connection.ProtocolHelper.getCommandFailureException(ProtocolHelper.java:210) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.lambda$sendCommandMessageAsync$9(InternalStreamConnection.java:620) ~[mongodb-driver-core-5.2.1.jar:na]
+	... 30 common frames omitted
+
+2025-01-31T14:19:02.817+03:00  INFO 14276 --- [transaction-producer] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-01-31T14:19:02.829+03:00  INFO 14276 --- [transaction-producer] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-01-31T14:19:06.553+03:00  INFO 14325 --- [transaction-producer] [restartedMain] c.f.t.TransactionProducerApplication     : Starting TransactionProducerApplication using Java 17.0.6 with PID 14325 (/Users/furkanalniak/Documents/assignment/transaction_producer/target/classes started by furkanalniak in /Users/furkanalniak/Documents/assignment)
+2025-01-31T14:19:06.556+03:00  INFO 14325 --- [transaction-producer] [restartedMain] c.f.t.TransactionProducerApplication     : The following 1 profile is active: "dev"
+2025-01-31T14:19:06.638+03:00  INFO 14325 --- [transaction-producer] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-01-31T14:19:06.639+03:00  INFO 14325 --- [transaction-producer] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-01-31T14:19:08.778+03:00  INFO 14325 --- [transaction-producer] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive MongoDB repositories in DEFAULT mode.
+2025-01-31T14:19:08.820+03:00  INFO 14325 --- [transaction-producer] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 27 ms. Found 0 Reactive MongoDB repository interfaces.
+2025-01-31T14:19:08.833+03:00  INFO 14325 --- [transaction-producer] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2025-01-31T14:19:08.847+03:00  INFO 14325 --- [transaction-producer] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 1 ms. Found 0 MongoDB repository interfaces.
+2025-01-31T14:19:09.925+03:00  INFO 14325 --- [transaction-producer] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-01-31T14:19:09.938+03:00  INFO 14325 --- [transaction-producer] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-01-31T14:19:09.939+03:00  INFO 14325 --- [transaction-producer] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-01-31T14:19:09.981+03:00  INFO 14325 --- [transaction-producer] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-01-31T14:19:09.982+03:00  INFO 14325 --- [transaction-producer] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3343 ms
+2025-01-31T14:19:10.737+03:00  INFO 14325 --- [transaction-producer] [restartedMain] org.mongodb.driver.client                : MongoClient with metadata {"driver": {"name": "mongo-java-driver|reactive-streams|spring-boot", "version": "5.2.1"}, "os": {"type": "Darwin", "name": "Mac OS X", "architecture": "x86_64", "version": "15.1.1"}, "platform": "Java/JetBrains s.r.o./17.0.6+10-b829.9"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=MongoCredential{mechanism=SCRAM-SHA-1, userName='assignment-admin', source='admin', password=<hidden>, mechanismProperties=<hidden>}, transportSettings=null, commandListeners=[io.micrometer.core.instrument.binder.mongodb.MongoMetricsCommandListener@7c4e52ca], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@25a3a1e1, com.mongodb.Jep395RecordCodecProvider@1be01bd8, com.mongodb.KotlinCodecProvider@4c14603e]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[194.62.251.241:5415], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[io.micrometer.core.instrument.binder.mongodb.MongoMetricsConnectionPoolListener@42c2a374], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverMonitoringMode=AUTO, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=STANDARD, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null, timeoutMS=null}
+2025-01-31T14:19:10.837+03:00  INFO 14325 --- [transaction-producer] [restartedMain] org.mongodb.driver.client                : MongoClient with metadata {"driver": {"name": "mongo-java-driver|sync|spring-boot", "version": "5.2.1"}, "os": {"type": "Darwin", "name": "Mac OS X", "architecture": "x86_64", "version": "15.1.1"}, "platform": "Java/JetBrains s.r.o./17.0.6+10-b829.9"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=MongoCredential{mechanism=SCRAM-SHA-1, userName='assignment-admin', source='admin', password=<hidden>, mechanismProperties=<hidden>}, transportSettings=null, commandListeners=[io.micrometer.core.instrument.binder.mongodb.MongoMetricsCommandListener@7c4e52ca], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@25a3a1e1, com.mongodb.Jep395RecordCodecProvider@1be01bd8, com.mongodb.KotlinCodecProvider@4c14603e]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[194.62.251.241:5415], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[io.micrometer.core.instrument.binder.mongodb.MongoMetricsConnectionPoolListener@42c2a374], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverMonitoringMode=AUTO, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=STANDARD, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null, timeoutMS=null}
+2025-01-31T14:19:10.947+03:00  INFO 14325 --- [transaction-producer] [cluster-ClusterId{value='679cb1ae8bc17d5e5741f001', description='null'}-194.62.251.241:5415] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=194.62.251.241:5415, type=STANDALONE, cryptd=false, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=81722125, minRoundTripTimeNanos=0}
+2025-01-31T14:19:11.191+03:00  INFO 14325 --- [transaction-producer] [cluster-ClusterId{value='679cb1ae8bc17d5e5741f002', description='null'}-194.62.251.241:5415] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=194.62.251.241:5415, type=STANDALONE, cryptd=false, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=87980834, minRoundTripTimeNanos=0}
+2025-01-31T14:19:11.372+03:00  WARN 14325 --- [transaction-producer] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2025-01-31T14:19:11.379+03:00  INFO 14325 --- [transaction-producer] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-01-31T14:19:11.457+03:00  INFO 14325 --- [transaction-producer] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-01-31T14:19:11.490+03:00  INFO 14325 --- [transaction-producer] [restartedMain] c.f.t.TransactionProducerApplication     : Started TransactionProducerApplication in 5.975 seconds (process running for 7.023)
+2025-01-31T14:19:12.286+03:00  INFO 14325 --- [transaction-producer] [RMI TCP Connection(4)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-01-31T14:19:12.287+03:00  INFO 14325 --- [transaction-producer] [RMI TCP Connection(4)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-01-31T14:19:12.288+03:00  INFO 14325 --- [transaction-producer] [RMI TCP Connection(4)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-01-31T14:27:43.747+03:00  INFO 14325 --- [transaction-producer] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 8 class path changes (0 additions, 0 deletions, 8 modifications)
+2025-01-31T14:27:43.782+03:00  INFO 14325 --- [transaction-producer] [Thread-1] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-01-31T14:27:43.818+03:00  INFO 14325 --- [transaction-producer] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-01-31T14:27:44.263+03:00 ERROR 14325 --- [transaction-producer] [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.yaml.snakeyaml.constructor.DuplicateKeyException: while constructing a mapping
+ in 'reader', line 40, column 1:
+    spring:
+    ^
+found duplicate key spring
+ in 'reader', line 68, column 1:
+    spring:
+    ^
+
+	at org.yaml.snakeyaml.constructor.SafeConstructor.processDuplicateKeys(SafeConstructor.java:126) ~[snakeyaml-2.3.jar:na]
+	at org.yaml.snakeyaml.constructor.SafeConstructor.flattenMapping(SafeConstructor.java:78) ~[snakeyaml-2.3.jar:na]
+	at org.yaml.snakeyaml.constructor.SafeConstructor.flattenMapping(SafeConstructor.java:73) ~[snakeyaml-2.3.jar:na]
+	at org.yaml.snakeyaml.constructor.SafeConstructor.constructMapping2ndStep(SafeConstructor.java:209) ~[snakeyaml-2.3.jar:na]
+	at org.yaml.snakeyaml.constructor.BaseConstructor.constructMapping(BaseConstructor.java:552) ~[snakeyaml-2.3.jar:na]
+	at org.yaml.snakeyaml.constructor.SafeConstructor$ConstructYamlMap.construct(SafeConstructor.java:597) ~[snakeyaml-2.3.jar:na]
+	at org.yaml.snakeyaml.constructor.BaseConstructor.constructObjectNoCheck(BaseConstructor.java:264) ~[snakeyaml-2.3.jar:na]
+	at org.yaml.snakeyaml.constructor.BaseConstructor.constructObject(BaseConstructor.java:247) ~[snakeyaml-2.3.jar:na]
+	at org.springframework.boot.env.OriginTrackedYamlLoader$OriginTrackingConstructor.constructObject(OriginTrackedYamlLoader.java:119) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.yaml.snakeyaml.constructor.BaseConstructor.constructDocument(BaseConstructor.java:201) ~[snakeyaml-2.3.jar:na]
+	at org.yaml.snakeyaml.constructor.BaseConstructor.getData(BaseConstructor.java:166) ~[snakeyaml-2.3.jar:na]
+	at org.springframework.boot.env.OriginTrackedYamlLoader$OriginTrackingConstructor.getData(OriginTrackedYamlLoader.java:99) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.yaml.snakeyaml.Yaml$1.next(Yaml.java:529) ~[snakeyaml-2.3.jar:na]
+	at org.springframework.beans.factory.config.YamlProcessor.process(YamlProcessor.java:203) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.config.YamlProcessor.process(YamlProcessor.java:169) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.boot.env.OriginTrackedYamlLoader.load(OriginTrackedYamlLoader.java:84) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.springframework.boot.env.YamlPropertySourceLoader.load(YamlPropertySourceLoader.java:50) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.springframework.boot.context.config.StandardConfigDataLoader.load(StandardConfigDataLoader.java:54) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.springframework.boot.context.config.StandardConfigDataLoader.load(StandardConfigDataLoader.java:36) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.springframework.boot.context.config.ConfigDataLoaders.load(ConfigDataLoaders.java:96) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.springframework.boot.context.config.ConfigDataImporter.load(ConfigDataImporter.java:132) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.springframework.boot.context.config.ConfigDataImporter.resolveAndLoad(ConfigDataImporter.java:87) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.springframework.boot.context.config.ConfigDataEnvironmentContributors.withProcessedImports(ConfigDataEnvironmentContributors.java:121) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.springframework.boot.context.config.ConfigDataEnvironment.processInitial(ConfigDataEnvironment.java:245) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.springframework.boot.context.config.ConfigDataEnvironment.processAndApply(ConfigDataEnvironment.java:232) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.springframework.boot.context.config.ConfigDataEnvironmentPostProcessor.postProcessEnvironment(ConfigDataEnvironmentPostProcessor.java:96) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.springframework.boot.context.config.ConfigDataEnvironmentPostProcessor.postProcessEnvironment(ConfigDataEnvironmentPostProcessor.java:89) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.springframework.boot.env.EnvironmentPostProcessorApplicationListener.onApplicationEnvironmentPreparedEvent(EnvironmentPostProcessorApplicationListener.java:132) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.springframework.boot.env.EnvironmentPostProcessorApplicationListener.onApplicationEvent(EnvironmentPostProcessorApplicationListener.java:115) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:185) ~[spring-context-6.2.2.jar:6.2.2]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:178) ~[spring-context-6.2.2.jar:6.2.2]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:156) ~[spring-context-6.2.2.jar:6.2.2]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:138) ~[spring-context-6.2.2.jar:6.2.2]
+	at org.springframework.boot.context.event.EventPublishingRunListener.multicastInitialEvent(EventPublishingRunListener.java:136) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:81) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.springframework.boot.SpringApplicationRunListeners.lambda$environmentPrepared$2(SpringApplicationRunListeners.java:64) ~[spring-boot-3.4.2.jar:3.4.2]
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75) ~[na:na]
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:118) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:112) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:63) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:353) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:313) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.4.2.jar:3.4.2]
+	at com.furkanalniak.transaction_producer.TransactionProducerApplication.main(TransactionProducerApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.4.2.jar:3.4.2]
+
+2025-01-31T14:27:50.783+03:00 ERROR 14325 --- [transaction-producer] [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.yaml.snakeyaml.constructor.DuplicateKeyException: while constructing a mapping
+ in 'reader', line 40, column 1:
+    spring:
+    ^
+found duplicate key spring
+ in 'reader', line 68, column 1:
+    spring:
+    ^
+
+	at org.yaml.snakeyaml.constructor.SafeConstructor.processDuplicateKeys(SafeConstructor.java:126) ~[snakeyaml-2.3.jar:na]
+	at org.yaml.snakeyaml.constructor.SafeConstructor.flattenMapping(SafeConstructor.java:78) ~[snakeyaml-2.3.jar:na]
+	at org.yaml.snakeyaml.constructor.SafeConstructor.flattenMapping(SafeConstructor.java:73) ~[snakeyaml-2.3.jar:na]
+	at org.yaml.snakeyaml.constructor.SafeConstructor.constructMapping2ndStep(SafeConstructor.java:209) ~[snakeyaml-2.3.jar:na]
+	at org.yaml.snakeyaml.constructor.BaseConstructor.constructMapping(BaseConstructor.java:552) ~[snakeyaml-2.3.jar:na]
+	at org.yaml.snakeyaml.constructor.SafeConstructor$ConstructYamlMap.construct(SafeConstructor.java:597) ~[snakeyaml-2.3.jar:na]
+	at org.yaml.snakeyaml.constructor.BaseConstructor.constructObjectNoCheck(BaseConstructor.java:264) ~[snakeyaml-2.3.jar:na]
+	at org.yaml.snakeyaml.constructor.BaseConstructor.constructObject(BaseConstructor.java:247) ~[snakeyaml-2.3.jar:na]
+	at org.springframework.boot.env.OriginTrackedYamlLoader$OriginTrackingConstructor.constructObject(OriginTrackedYamlLoader.java:119) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.yaml.snakeyaml.constructor.BaseConstructor.constructDocument(BaseConstructor.java:201) ~[snakeyaml-2.3.jar:na]
+	at org.yaml.snakeyaml.constructor.BaseConstructor.getData(BaseConstructor.java:166) ~[snakeyaml-2.3.jar:na]
+	at org.springframework.boot.env.OriginTrackedYamlLoader$OriginTrackingConstructor.getData(OriginTrackedYamlLoader.java:99) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.yaml.snakeyaml.Yaml$1.next(Yaml.java:529) ~[snakeyaml-2.3.jar:na]
+	at org.springframework.beans.factory.config.YamlProcessor.process(YamlProcessor.java:203) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.config.YamlProcessor.process(YamlProcessor.java:169) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.boot.env.OriginTrackedYamlLoader.load(OriginTrackedYamlLoader.java:84) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.springframework.boot.env.YamlPropertySourceLoader.load(YamlPropertySourceLoader.java:50) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.springframework.boot.context.config.StandardConfigDataLoader.load(StandardConfigDataLoader.java:54) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.springframework.boot.context.config.StandardConfigDataLoader.load(StandardConfigDataLoader.java:36) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.springframework.boot.context.config.ConfigDataLoaders.load(ConfigDataLoaders.java:96) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.springframework.boot.context.config.ConfigDataImporter.load(ConfigDataImporter.java:132) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.springframework.boot.context.config.ConfigDataImporter.resolveAndLoad(ConfigDataImporter.java:87) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.springframework.boot.context.config.ConfigDataEnvironmentContributors.withProcessedImports(ConfigDataEnvironmentContributors.java:121) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.springframework.boot.context.config.ConfigDataEnvironment.processInitial(ConfigDataEnvironment.java:245) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.springframework.boot.context.config.ConfigDataEnvironment.processAndApply(ConfigDataEnvironment.java:232) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.springframework.boot.context.config.ConfigDataEnvironmentPostProcessor.postProcessEnvironment(ConfigDataEnvironmentPostProcessor.java:96) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.springframework.boot.context.config.ConfigDataEnvironmentPostProcessor.postProcessEnvironment(ConfigDataEnvironmentPostProcessor.java:89) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.springframework.boot.env.EnvironmentPostProcessorApplicationListener.onApplicationEnvironmentPreparedEvent(EnvironmentPostProcessorApplicationListener.java:132) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.springframework.boot.env.EnvironmentPostProcessorApplicationListener.onApplicationEvent(EnvironmentPostProcessorApplicationListener.java:115) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:185) ~[spring-context-6.2.2.jar:6.2.2]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:178) ~[spring-context-6.2.2.jar:6.2.2]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:156) ~[spring-context-6.2.2.jar:6.2.2]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:138) ~[spring-context-6.2.2.jar:6.2.2]
+	at org.springframework.boot.context.event.EventPublishingRunListener.multicastInitialEvent(EventPublishingRunListener.java:136) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:81) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.springframework.boot.SpringApplicationRunListeners.lambda$environmentPrepared$2(SpringApplicationRunListeners.java:64) ~[spring-boot-3.4.2.jar:3.4.2]
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75) ~[na:na]
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:118) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:112) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:63) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:353) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:313) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.4.2.jar:3.4.2]
+	at com.furkanalniak.transaction_producer.TransactionProducerApplication.main(TransactionProducerApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.4.2.jar:3.4.2]
+
+2025-01-31T14:33:22.619+03:00  INFO 16584 --- [transaction-producer] [restartedMain] c.f.t.TransactionProducerApplication     : Starting TransactionProducerApplication using Java 17.0.6 with PID 16584 (/Users/furkanalniak/Documents/assignment/transaction_producer/target/classes started by furkanalniak in /Users/furkanalniak/Documents/assignment)
+2025-01-31T14:33:22.628+03:00  INFO 16584 --- [transaction-producer] [restartedMain] c.f.t.TransactionProducerApplication     : The following 1 profile is active: "dev"
+2025-01-31T14:33:22.712+03:00  INFO 16584 --- [transaction-producer] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-01-31T14:33:22.713+03:00  INFO 16584 --- [transaction-producer] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-01-31T14:33:24.120+03:00  INFO 16584 --- [transaction-producer] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive MongoDB repositories in DEFAULT mode.
+2025-01-31T14:33:24.168+03:00  INFO 16584 --- [transaction-producer] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 39 ms. Found 0 Reactive MongoDB repository interfaces.
+2025-01-31T14:33:24.178+03:00  INFO 16584 --- [transaction-producer] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2025-01-31T14:33:24.181+03:00  INFO 16584 --- [transaction-producer] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 1 ms. Found 0 MongoDB repository interfaces.
+2025-01-31T14:33:24.949+03:00  INFO 16584 --- [transaction-producer] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-01-31T14:33:24.965+03:00  INFO 16584 --- [transaction-producer] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-01-31T14:33:24.965+03:00  INFO 16584 --- [transaction-producer] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-01-31T14:33:25.035+03:00  INFO 16584 --- [transaction-producer] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-01-31T14:33:25.036+03:00  INFO 16584 --- [transaction-producer] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2323 ms
+2025-01-31T14:33:26.153+03:00  INFO 16584 --- [transaction-producer] [restartedMain] org.mongodb.driver.client                : MongoClient with metadata {"driver": {"name": "mongo-java-driver|reactive-streams|spring-boot", "version": "5.2.1"}, "os": {"type": "Darwin", "name": "Mac OS X", "architecture": "x86_64", "version": "15.1.1"}, "platform": "Java/JetBrains s.r.o./17.0.6+10-b829.9"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=MongoCredential{mechanism=SCRAM-SHA-1, userName='assignment-admin', source='admin', password=<hidden>, mechanismProperties=<hidden>}, transportSettings=null, commandListeners=[io.micrometer.core.instrument.binder.mongodb.MongoMetricsCommandListener@248e0daa], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@46628935, com.mongodb.Jep395RecordCodecProvider@23e6fde, com.mongodb.KotlinCodecProvider@b3b034b]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[194.62.251.241:5415], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[io.micrometer.core.instrument.binder.mongodb.MongoMetricsConnectionPoolListener@5f8cacdb], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverMonitoringMode=AUTO, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=STANDARD, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null, timeoutMS=null}
+2025-01-31T14:33:26.279+03:00  INFO 16584 --- [transaction-producer] [restartedMain] org.mongodb.driver.client                : MongoClient with metadata {"driver": {"name": "mongo-java-driver|sync|spring-boot", "version": "5.2.1"}, "os": {"type": "Darwin", "name": "Mac OS X", "architecture": "x86_64", "version": "15.1.1"}, "platform": "Java/JetBrains s.r.o./17.0.6+10-b829.9"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=MongoCredential{mechanism=SCRAM-SHA-1, userName='assignment-admin', source='admin', password=<hidden>, mechanismProperties=<hidden>}, transportSettings=null, commandListeners=[io.micrometer.core.instrument.binder.mongodb.MongoMetricsCommandListener@248e0daa], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@46628935, com.mongodb.Jep395RecordCodecProvider@23e6fde, com.mongodb.KotlinCodecProvider@b3b034b]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[194.62.251.241:5415], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[io.micrometer.core.instrument.binder.mongodb.MongoMetricsConnectionPoolListener@5f8cacdb], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverMonitoringMode=AUTO, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=STANDARD, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null, timeoutMS=null}
+2025-01-31T14:33:26.890+03:00  INFO 16584 --- [transaction-producer] [cluster-ClusterId{value='679cb506a8b82464bc8d6164', description='null'}-194.62.251.241:5415] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=194.62.251.241:5415, type=STANDALONE, cryptd=false, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=187952292, minRoundTripTimeNanos=0}
+2025-01-31T14:33:26.891+03:00  INFO 16584 --- [transaction-producer] [cluster-ClusterId{value='679cb506a8b82464bc8d6163', description='null'}-194.62.251.241:5415] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=194.62.251.241:5415, type=STANDALONE, cryptd=false, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=180192083, minRoundTripTimeNanos=0}
+2025-01-31T14:33:27.122+03:00  WARN 16584 --- [transaction-producer] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'kafkaListenerContainerFactory' defined in class path resource [org/springframework/boot/autoconfigure/kafka/KafkaAnnotationDrivenConfiguration.class]: Failed to instantiate [org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory]: Factory method 'kafkaListenerContainerFactory' threw exception with message: 'void org.springframework.kafka.listener.ContainerProperties.setKafkaAwareTransactionManager(org.springframework.kafka.transaction.KafkaAwareTransactionManager)'
+2025-01-31T14:33:27.131+03:00  INFO 16584 --- [transaction-producer] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-01-31T14:33:27.164+03:00  INFO 16584 --- [transaction-producer] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-01-31T14:33:27.187+03:00 ERROR 16584 --- [transaction-producer] [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+An attempt was made to call a method that does not exist. The attempt was made from the following location:
+
+    org.springframework.boot.autoconfigure.kafka.ConcurrentKafkaListenerContainerFactoryConfigurer.configureContainer(ConcurrentKafkaListenerContainerFactoryConfigurer.java:240)
+
+The following method did not exist:
+
+    'void org.springframework.kafka.listener.ContainerProperties.setKafkaAwareTransactionManager(org.springframework.kafka.transaction.KafkaAwareTransactionManager)'
+
+The calling method's class, org.springframework.boot.autoconfigure.kafka.ConcurrentKafkaListenerContainerFactoryConfigurer, was loaded from the following location:
+
+    jar:file:/Users/furkanalniak/.m2/repository/org/springframework/boot/spring-boot-autoconfigure/3.4.2/spring-boot-autoconfigure-3.4.2.jar!/org/springframework/boot/autoconfigure/kafka/ConcurrentKafkaListenerContainerFactoryConfigurer.class
+
+The called method's class, org.springframework.kafka.listener.ContainerProperties, is available from the following locations:
+
+    jar:file:/Users/furkanalniak/.m2/repository/org/springframework/kafka/spring-kafka/3.1.1/spring-kafka-3.1.1.jar!/org/springframework/kafka/listener/ContainerProperties.class
+
+The called method's class hierarchy was loaded from the following locations:
+
+    org.springframework.kafka.listener.ContainerProperties: file:/Users/furkanalniak/.m2/repository/org/springframework/kafka/spring-kafka/3.1.1/spring-kafka-3.1.1.jar
+    org.springframework.kafka.listener.ConsumerProperties: file:/Users/furkanalniak/.m2/repository/org/springframework/kafka/spring-kafka/3.1.1/spring-kafka-3.1.1.jar
+
+
+Action:
+
+Correct the classpath of your application so that it contains compatible versions of the classes org.springframework.boot.autoconfigure.kafka.ConcurrentKafkaListenerContainerFactoryConfigurer and org.springframework.kafka.listener.ContainerProperties
+
+2025-01-31T14:36:57.724+03:00  INFO 17287 --- [transaction-producer] [restartedMain] c.f.t.TransactionProducerApplication     : Starting TransactionProducerApplication using Java 17.0.6 with PID 17287 (/Users/furkanalniak/Documents/assignment/transaction_producer/target/classes started by furkanalniak in /Users/furkanalniak/Documents/assignment)
+2025-01-31T14:36:57.732+03:00  INFO 17287 --- [transaction-producer] [restartedMain] c.f.t.TransactionProducerApplication     : The following 1 profile is active: "dev"
+2025-01-31T14:36:57.815+03:00  INFO 17287 --- [transaction-producer] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-01-31T14:36:57.816+03:00  INFO 17287 --- [transaction-producer] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-01-31T14:36:58.909+03:00  INFO 17287 --- [transaction-producer] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive MongoDB repositories in DEFAULT mode.
+2025-01-31T14:36:58.927+03:00  INFO 17287 --- [transaction-producer] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 0 Reactive MongoDB repository interfaces.
+2025-01-31T14:36:59.368+03:00  INFO 17287 --- [transaction-producer] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-01-31T14:36:59.377+03:00  INFO 17287 --- [transaction-producer] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-01-31T14:36:59.377+03:00  INFO 17287 --- [transaction-producer] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-01-31T14:36:59.413+03:00  INFO 17287 --- [transaction-producer] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-01-31T14:36:59.413+03:00  INFO 17287 --- [transaction-producer] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1597 ms
+2025-01-31T14:36:59.900+03:00  INFO 17287 --- [transaction-producer] [restartedMain] org.mongodb.driver.client                : MongoClient with metadata {"driver": {"name": "mongo-java-driver|reactive-streams|spring-boot", "version": "4.11.1"}, "os": {"type": "Darwin", "name": "Mac OS X", "architecture": "x86_64", "version": "15.1.1"}, "platform": "Java/JetBrains s.r.o./17.0.6+10-b829.9"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=MongoCredential{mechanism=SCRAM-SHA-1, userName='assignment-admin', source='admin', password=<hidden>, mechanismProperties=<hidden>}, transportSettings=null, streamFactoryFactory=null, commandListeners=[io.micrometer.core.instrument.binder.mongodb.MongoMetricsCommandListener@7e0669fc], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@74766761, com.mongodb.Jep395RecordCodecProvider@27f127f1, com.mongodb.KotlinCodecProvider@65acfa39]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[194.62.251.241:5415], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[io.micrometer.core.instrument.binder.mongodb.MongoMetricsConnectionPoolListener@28a826f9], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=STANDARD, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null}
+2025-01-31T14:37:00.360+03:00  INFO 17287 --- [transaction-producer] [cluster-ClusterId{value='679cb5db0c7d7828ae153eff', description='null'}-194.62.251.241:5415] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=194.62.251.241:5415, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=110188166}
+2025-01-31T14:37:00.643+03:00  WARN 17287 --- [transaction-producer] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2025-01-31T14:37:00.650+03:00  INFO 17287 --- [transaction-producer] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2025-01-31T14:37:00.717+03:00  INFO 17287 --- [transaction-producer] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2025-01-31T14:37:00.738+03:00  INFO 17287 --- [transaction-producer] [restartedMain] c.f.t.TransactionProducerApplication     : Started TransactionProducerApplication in 3.882 seconds (process running for 4.829)
+2025-01-31T14:37:01.078+03:00  INFO 17287 --- [transaction-producer] [RMI TCP Connection(2)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-01-31T14:37:01.078+03:00  INFO 17287 --- [transaction-producer] [RMI TCP Connection(2)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-01-31T14:37:01.079+03:00  INFO 17287 --- [transaction-producer] [RMI TCP Connection(2)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms

@@ -3,6 +3,15 @@ spring:
     active: dev
   application:
     name: fraud-detector
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      group-id: fraud-detector-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: "com.furkanalniak.assignment.model"
 
 server:
   port: 8081
@@ -23,13 +32,13 @@ spring:
       on-profile: dev
   data:
     mongodb:
-      uri: mongodb://assignment-admin:uF*3lviO0iaZcKTT479_t@194.62.251.241:5415/dbank-assignment
+      uri: mongodb://assignment-admin:uF*3lviO0iaZcKTT479_t@194.62.251.241:5415/dbank-assignment?authSource=admin&authMechanism=SCRAM-SHA-1
       database: dbank-assignment
-
+      auto-index-creation: true
+      uuid-representation: standard
 logging:
   file:
     name: logs/fraud-detector-dev.log
-
 ---
 spring:
   config:
@@ -39,7 +48,10 @@ spring:
     mongodb:
       uri: mongodb://assignment-admin:uF*3lviO0iaZcKTT479_t@dbank-assignment-mongodb:5415/dbank-assignment
       database: dbank-assignment
+  kafka:
+    consumer:
+      bootstrap-servers: kafka:9092
 
 logging:
   file:
-    name: /var/log/fraud-detector.log 
+    name: /var/log/fraud-detector.log
