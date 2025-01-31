@@ -1,0 +1,45 @@
+spring:
+  profiles:
+    active: dev
+  application:
+    name: transaction-producer
+
+server:
+  port: 8080
+
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+  level:
+    root: INFO
+    com.furkanalniak.assignment: DEBUG
+    org.springframework.data.mongodb: INFO
+    org.springframework.web: INFO
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+  data:
+    mongodb:
+      uri: mongodb://assignment-admin:uF*3lviO0iaZcKTT479_t@194.62.251.241:5415/dbank-assignment
+      database: dbank-assignment
+
+logging:
+  file:
+    name: logs/transaction-producer-dev.log
+
+---
+spring:
+  config:
+    activate:
+      on-profile: docker
+  data:
+    mongodb:
+      uri: mongodb://assignment-admin:uF*3lviO0iaZcKTT479_t@dbank-assignment-mongodb:5415/dbank-assignment
+      database: dbank-assignment
+
+logging:
+  file:
+    name: /var/log/transaction-producer.log 

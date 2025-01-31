@@ -1,0 +1,55 @@
+version: '3.8'
+
+services:
+  dbank-assignment-mongodb:
+    image: mongo:4.0
+    command: mongod --port 5415
+    container_name: "dbank-assignment-db"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=assignment-admin
+      - MONGO_INITDB_ROOT_PASSWORD=uF*3lviO0iaZcKTT479_t
+    ports:
+      - 5415:5415
+    networks:
+      - assignment-db-dockernet
+    volumes:
+      - db-assignment-volume:/data/db
+
+  transaction-producer:
+    build:
+      context: ./transaction_producer
+      dockerfile: Dockerfile
+    container_name: transaction-producer
+    ports:
+      - "8080:8080"
+    depends_on:
+      - dbank-assignment-mongodb
+    networks:
+      - assignment-db-dockernet
+    volumes:
+      - ./logs:/var/log
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+
+  fraud-detector:
+    build:
+      context: ./fraud_detector
+      dockerfile: Dockerfile
+    container_name: fraud-detector
+    ports:
+      - "8081:8081"
+    depends_on:
+      - dbank-assignment-mongodb
+    networks:
+      - assignment-db-dockernet
+    volumes:
+      - ./logs:/var/log
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+
+volumes:
+  db-assignment-volume:
+
+networks:
+  assignment-db-dockernet:
+    driver: bridge 
