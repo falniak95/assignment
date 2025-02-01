@@ -1,0 +1,45 @@
+spring:
+  application:
+    name: fraud-detector
+  data:
+    mongodb:
+      uri: mongodb://assignment-admin:uF*3lviO0iaZcKTT479_t@194.62.251.241:5415/dbank-assignment?authSource=admin
+      database: dbank-assignment
+      auto-index-creation: true
+  kafka:
+    topics:
+      transaction-events: transaction-events
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: fraud-detector-group
+      auto-offset-reset: earliest
+      enable-auto-commit: false
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+
+        spring.deserializer.value.delegate.class: org.springframework.kafka.support.serializer.JsonDeserializer
+        spring.json.trusted.packages: "*"
+        spring.json.use.type.headers: false
+        spring.json.value.default.type: "com.furkanalniak.assignment.model.Transaction"
+        spring.json.type.mapping: "transaction:com.furkanalniak.assignment.model.Transaction"
+    listener:
+      ack-mode: MANUAL_IMMEDIATE
+  config:
+    activate:
+      on-profile: dev
+server:
+  port: 8081
+
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+  level:
+    root: INFO
+    com.furkanalniak.assignment: DEBUG
+    org.springframework.data.mongodb: INFO
+    org.springframework.web: INFO
+    org.apache.kafka: INFO
+    org.springframework.kafka: INFO
+    org.springframework.kafka.listener: INFO
+    org.springframework.kafka.config: INFO

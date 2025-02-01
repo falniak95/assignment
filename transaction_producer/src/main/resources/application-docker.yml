@@ -1,0 +1,61 @@
+spring:
+  config:
+    activate:
+      on-profile: docker
+  data:
+    mongodb:
+      uri: mongodb://assignment-admin:uF*3lviO0iaZcKTT479_t@dbank-assignment-mongodb:5415/dbank-assignment?authSource=admin
+      database: dbank-assignment
+  kafka:
+    bootstrap-servers: kafka:29092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties:
+        spring.json.type.mapping: transaction:com.furkanalniak.assignment.model.Transaction
+        spring.json.trusted.packages: "com.furkanalniak.assignment.model"
+        request.timeout.ms: 20000
+        max.block.ms: 20000
+        retries: 3
+        retry.backoff.ms: 1000
+    admin:
+      auto-create: true
+      properties:
+        bootstrap.servers: kafka:29092
+    properties:
+      auto.create.topics.enable: true
+    topics:
+      transaction-events: transaction-events
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+logging:
+  file:
+    name: /var/log/transaction-producer.log
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
+  info:
+    env:
+      enabled: true
+
+info:
+  app:
+    name: Transaction Producer Service
+    description: Banking Transaction System Producer Service
+    version: 1.0.0
+
+mongodb:
+  embedded:
+    version: 4.0.21

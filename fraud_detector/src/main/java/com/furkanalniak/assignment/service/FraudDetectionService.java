@@ -4,8 +4,9 @@ import com.furkanalniak.assignment.model.Transaction;
 import com.furkanalniak.assignment.repository.BranchRepository;
 import com.furkanalniak.assignment.repository.CustomerRepository;
 import com.furkanalniak.assignment.repository.TransactionRepository;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
@@ -15,12 +16,18 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 @Service
-@Slf4j
-@RequiredArgsConstructor
 public class FraudDetectionService {
     private final BranchRepository branchRepository;
     private final CustomerRepository customerRepository;
     private final TransactionRepository transactionRepository;
+    protected final Logger logger = LogManager.getLogger(FraudDetectionService.class);
+
+    @Autowired
+    public FraudDetectionService(BranchRepository branchRepository, CustomerRepository customerRepository, TransactionRepository transactionRepository) {
+        this.branchRepository = branchRepository;
+        this.customerRepository = customerRepository;
+        this.transactionRepository = transactionRepository;
+    }
 
     private static final BigDecimal HIGH_AMOUNT_THRESHOLD = new BigDecimal("50000.00");
     private static final LocalTime BUSINESS_HOURS_START = LocalTime.of(9, 0);
@@ -47,7 +54,7 @@ public class FraudDetectionService {
             String dateStr = parts[0];
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd HHmmss");
             LocalDateTime identifierDate = LocalDateTime.parse(dateStr + " 000000", formatter);
-            
+
             if (!identifierDate.toLocalDate().equals(transaction.getTimestamp().toLocalDate())) {
                 return markAsFraudulent(transaction, "Transaction date mismatch");
             }
@@ -125,7 +132,7 @@ public class FraudDetectionService {
 
     private Mono<Transaction> validateAmount(Transaction transaction) {
         return transactionRepository.findBySenderCustomerNumberAndTimestampAfter(
-                transaction.getSenderCustomerNumber(), 
+                transaction.getSenderCustomerNumber(),
                 LocalDateTime.now().minusHours(24)
             )
             .collectList()
@@ -165,7 +172,7 @@ public class FraudDetectionService {
     private Mono<Transaction> markAsFraudulent(Transaction transaction, String reason) {
         transaction.setFraudulent(true);
         transaction.setFraudReason(reason);
-        log.warn("Fraud detected: {} - {}", transaction.getTransactionId(), reason);
+        logger.warn("Fraud detected: {} - {}", transaction.getTransactionId(), reason);
         return Mono.just(transaction);
     }
 } 
