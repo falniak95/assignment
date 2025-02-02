@@ -16,9 +16,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Document(collection = "transactions")
-public class Transaction {
-    @Id
-    private String id;
+public class Transaction extends AbstractEntity{
     
     @NotNull
     @Indexed
