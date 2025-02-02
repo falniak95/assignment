@@ -16,6 +16,7 @@
     <description>Banking Transaction System Assignment</description>
 
     <modules>
+        <module>core</module>
         <module>transaction_producer</module>
         <module>fraud_detector</module>
     </modules>
@@ -44,6 +45,11 @@
                 <groupId>org.springdoc</groupId>
                 <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
                 <version>${springdoc.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.furkanalniak</groupId>
+                <artifactId>core</artifactId>
+                <version>${project.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

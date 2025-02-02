@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: core
+  data:
+    mongodb:
+      uri: mongodb://assignment-admin:uF*3lviO0iaZcKTT479_t@dbank-assignment-mongodb:5415/dbank-assignment?authSource=admin
+      database: dbank-assignment
+      auto-index-creation: true
+  config:
+    activate:
+      on-profile: docker
+
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+  level:
+    root: INFO
+    com.furkanalniak.assignment: DEBUG
+    org.springframework.data.mongodb: INFO
+    org.springframework.web: INFO
+    org.apache.kafka: INFO
+    org.springframework.kafka: INFO
+    org.springframework.kafka.listener: INFO
+    org.springframework.kafka.config: INFO
