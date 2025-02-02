@@ -1,0 +1,67 @@
+spring:
+  config:
+    activate:
+      on-profile: dev
+  application:
+    name: transaction-producer
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties:
+        spring.json.type.mapping: transaction:com.furkanalniak.assignment.model.Transaction
+        spring.json.trusted.packages: "com.furkanalniak.assignment.model"
+        request.timeout.ms: 20000
+        max.block.ms: 20000
+        retries: 3
+        retry.backoff.ms: 1000
+    admin:
+      auto-create: true
+      properties:
+        bootstrap.servers: localhost:9092
+    properties:
+      auto.create.topics.enable: true
+    topics:
+      transaction-events: transaction-events
+  data:
+    mongodb:
+      uri: mongodb://assignment-admin:uF*3lviO0iaZcKTT479_t@194.62.251.241:5415/dbank-assignment?authSource=admin
+      database: dbank-assignment
+      auto-index-creation: true
+      uuid-representation: standard
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+server:
+  port: 8080
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: method
+  packages-to-scan: com.furkanalniak.assignment.controller
+  enable-native-support: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always
+    metrics:
+      enabled: true
+
+logging:
+  level:
+    root: INFO
+    com.furkanalniak.assignment: DEBUG
+    org.springframework.data.mongodb: INFO
+    org.springframework.web: INFO
+  file:
+    name: logs/transaction-producer-dev.log

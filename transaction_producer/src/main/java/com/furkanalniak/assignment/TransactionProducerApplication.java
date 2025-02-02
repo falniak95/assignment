@@ -2,12 +2,13 @@ package com.furkanalniak.assignment;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 @SpringBootApplication
-@EnableScheduling
+@EnableMongoRepositories
 public class TransactionProducerApplication {
-    public static void main(String[] args) {
-        SpringApplication.run(TransactionProducerApplication.class, args);
-    }
-} 
+
+  public static void main(String[] args) {
+    SpringApplication.run(TransactionProducerApplication.class, args);
+  }
+}

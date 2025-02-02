@@ -1,92 +1,170 @@
 package com.furkanalniak.assignment.service;
 
 import com.furkanalniak.assignment.model.Transaction;
-import com.furkanalniak.assignment.repository.CustomerRepository;
-import com.furkanalniak.assignment.repository.BranchRepository;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Service;
-import reactor.core.publisher.Mono;
-
+import com.furkanalniak.assignment.repository.TransactionRepository;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicInteger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 @Service
-@Slf4j
-@RequiredArgsConstructor
 public class TransactionService {
-    private final CustomerRepository customerRepository;
-    private final BranchRepository branchRepository;
+    private static final Logger logger = LogManager.getLogger(TransactionService.class);
+    
+    private final TransactionRepository transactionRepository;
     private final TransactionKafkaProducer kafkaProducer;
+
+    @Autowired
+    public TransactionService(TransactionRepository transactionRepository, TransactionKafkaProducer kafkaProducer) {
+        this.transactionRepository = transactionRepository;
+        this.kafkaProducer = kafkaProducer;
+    }
+
     private final Random random = new Random();
     private final AtomicInteger sequence = new AtomicInteger(1);
 
-    public Mono<Transaction> generateRandomTransaction() {
-        return customerRepository.findAll()
-            .collectList()
-            .flatMap(customers -> {
-                if (customers.size() < 2) {
-                    return Mono.error(new RuntimeException("Not enough customers"));
-                }
+    // Test için örnek müşteri ve şube verileri
+    private static final List<String> CUSTOMER_NUMBERS = Arrays.asList(
+            "10000001", "10000002", "10000003", "10000004", "10000005"
+    );
+    private static final List<String> BRANCH_CODES = Arrays.asList(
+            "34001", "34002", "34003", "34004", "34005"
+    );
 
-                var sender = customers.get(random.nextInt(customers.size()));
-                var receiver = customers.get(random.nextInt(customers.size()));
-                
-                // Ensure sender and receiver are different
-                while (sender.equals(receiver)) {
-                    receiver = customers.get(random.nextInt(customers.size()));
-                }
+    public Transaction generateRandomTransaction() {
+        Transaction transaction = createRandomTransaction();
+        Transaction savedTransaction = transactionRepository.save(transaction);
+        kafkaProducer.sendTransaction(savedTransaction);
+        logger.info("Generated random transaction: {}", savedTransaction.getTransactionId());
+        return savedTransaction;
+    }
 
-                Transaction transaction = new Transaction();
-                transaction.setTransactionId("TR" + System.currentTimeMillis());
-                transaction.setSenderCustomerNumber(sender.getCustomerNumber());
-                transaction.setReceiverCustomerNumber(receiver.getCustomerNumber());
-                transaction.setSenderBranchCode(sender.getBranchCode());
-                transaction.setReceiverBranchCode(receiver.getBranchCode());
-                transaction.setAmount(new BigDecimal(random.nextInt(100000)));
-                transaction.setCurrency("DKK");
-                transaction.setTimestamp(LocalDateTime.now());
-                
-                // Generate transaction identifier
-                String identifier = generateTransactionIdentifier(sender.getCustomerNumber(), sender.getBranchCode());
-                transaction.setTransactionIdentifier(identifier);
+    public Transaction generateFraudulentTransaction() {
+        Transaction transaction = createFraudulentTransaction();
+        Transaction savedTransaction = transactionRepository.save(transaction);
+        kafkaProducer.sendTransaction(savedTransaction);
+        logger.info("Generated fraudulent transaction: {}", savedTransaction.getTransactionId());
+        return savedTransaction;
+    }
 
-                return Mono.just(transaction);
-            })
-            .doOnNext(kafkaProducer::sendTransaction)
-            .doOnNext(t -> log.info("Generated transaction: {}", t.getTransactionId()));
+    private Transaction createRandomTransaction() {
+        // Rastgele gönderici ve alıcı seç
+        String senderCustomerNumber = getRandomElement(CUSTOMER_NUMBERS);
+        String receiverCustomerNumber;
+        do {
+            receiverCustomerNumber = getRandomElement(CUSTOMER_NUMBERS);
+        } while (senderCustomerNumber.equals(receiverCustomerNumber));
+
+        String senderBranchCode = getRandomElement(BRANCH_CODES);
+        String receiverBranchCode = getRandomElement(BRANCH_CODES);
+
+        Transaction transaction = Transaction.builder()
+                .transactionId("TR" + System.currentTimeMillis())
+                .senderCustomerNumber(senderCustomerNumber)
+                .receiverCustomerNumber(receiverCustomerNumber)
+                .senderBranchCode(senderBranchCode)
+                .receiverBranchCode(receiverBranchCode)
+                .amount(generateRandomAmount())
+                .currency("TRY")
+                .timestamp(LocalDateTime.now())
+                .transactionIdentifier(generateTransactionIdentifier(senderCustomerNumber, senderBranchCode))
+                .fraudulent(false)
+                .build();
+
+        return transaction;
+    }
+
+    private Transaction createFraudulentTransaction() {
+        Transaction transaction = createRandomTransaction();
+        transaction = Transaction.builder()
+                .transactionId(transaction.getTransactionId())
+                .senderCustomerNumber(transaction.getSenderCustomerNumber())
+                .receiverCustomerNumber(transaction.getReceiverCustomerNumber())
+                .senderBranchCode(transaction.getSenderBranchCode())
+                .receiverBranchCode(transaction.getReceiverBranchCode())
+                .amount(transaction.getAmount())
+                .currency(transaction.getCurrency())
+                .timestamp(transaction.getTimestamp())
+                .transactionIdentifier(transaction.getTransactionIdentifier())
+                .fraudulent(true)
+                .build();
+
+        // Farklı dolandırıcılık senaryoları
+        switch (random.nextInt(3)) {
+            case 0:
+                // Gelecek tarihli işlem
+                transaction = Transaction.builder()
+                        .transactionId(transaction.getTransactionId())
+                        .senderCustomerNumber(transaction.getSenderCustomerNumber())
+                        .receiverCustomerNumber(transaction.getReceiverCustomerNumber())
+                        .senderBranchCode(transaction.getSenderBranchCode())
+                        .receiverBranchCode(transaction.getReceiverBranchCode())
+                        .amount(transaction.getAmount())
+                        .currency(transaction.getCurrency())
+                        .timestamp(LocalDateTime.now().plusDays(1))
+                        .transactionIdentifier(transaction.getTransactionIdentifier())
+                        .fraudulent(true)
+                        .fraudReason("Future dated transaction")
+                        .build();
+                break;
+            case 1:
+                // Geçersiz şube kodu
+                transaction = Transaction.builder()
+                        .transactionId(transaction.getTransactionId())
+                        .senderCustomerNumber(transaction.getSenderCustomerNumber())
+                        .receiverCustomerNumber(transaction.getReceiverCustomerNumber())
+                        .senderBranchCode("99999")
+                        .receiverBranchCode(transaction.getReceiverBranchCode())
+                        .amount(transaction.getAmount())
+                        .currency(transaction.getCurrency())
+                        .timestamp(transaction.getTimestamp())
+                        .transactionIdentifier(transaction.getTransactionIdentifier())
+                        .fraudulent(true)
+                        .fraudReason("Invalid branch code")
+                        .build();
+                break;
+            case 2:
+                // Yüksek tutarlı işlem
+                transaction = Transaction.builder()
+                        .transactionId(transaction.getTransactionId())
+                        .senderCustomerNumber(transaction.getSenderCustomerNumber())
+                        .receiverCustomerNumber(transaction.getReceiverCustomerNumber())
+                        .senderBranchCode(transaction.getSenderBranchCode())
+                        .receiverBranchCode(transaction.getReceiverBranchCode())
+                        .amount(new BigDecimal("1000000.00"))
+                        .currency(transaction.getCurrency())
+                        .timestamp(transaction.getTimestamp())
+                        .transactionIdentifier(transaction.getTransactionIdentifier())
+                        .fraudulent(true)
+                        .fraudReason("Unusually high amount")
+                        .build();
+                break;
+        }
+
+        return transaction;
     }
 
     private String generateTransactionIdentifier(String customerNumber, String branchCode) {
         LocalDateTime now = LocalDateTime.now();
         String dateStr = now.format(DateTimeFormatter.ofPattern("yyyyMMdd"));
-        String seq = String.format("%04d", sequence.getAndIncrement());
+        String seq = String.format("%03d", sequence.getAndIncrement());
         return String.format("%s_%s_%s_%s", dateStr, branchCode, customerNumber, seq);
     }
 
-    // Generate fraudulent transaction for testing
-    public Mono<Transaction> generateFraudulentTransaction() {
-        return generateRandomTransaction()
-            .map(transaction -> {
-                // Make it fraudulent by modifying some fields
-                switch (random.nextInt(3)) {
-                    case 0:
-                        // Future dated transaction
-                        transaction.setTimestamp(LocalDateTime.now().plusDays(1));
-                        break;
-                    case 1:
-                        // Invalid branch code
-                        transaction.setSenderBranchCode("INVALID");
-                        break;
-                    case 2:
-                        // Mismatched customer-branch
-                        transaction.setSenderBranchCode("CPH999");
-                        break;
-                }
-                return transaction;
-            });
+    private BigDecimal generateRandomAmount() {
+        return new BigDecimal(random.nextInt(10000))
+                .add(new BigDecimal(random.nextInt(100)).divide(new BigDecimal(100)))
+                .setScale(2, BigDecimal.ROUND_HALF_UP);
+    }
+
+    private <T> T getRandomElement(List<T> list) {
+        return list.get(random.nextInt(list.size()));
     }
 } 
