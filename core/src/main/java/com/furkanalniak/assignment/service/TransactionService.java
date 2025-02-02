@@ -32,6 +32,10 @@ public class TransactionService extends AbstractService<Transaction> {
     this.transactionRepository = transactionRepository;
   }
 
+  public Mono<Transaction> findByTransactionId(String transactionId) {
+    return transactionRepository.findByTransactionId(transactionId);
+  }
+
   public Flux<Transaction> findBySenderCustomerNumberAndTimestampAfter(
       String customerNo, LocalDateTime timestamp) {
     return transactionRepository.findBySenderCustomerNumberAndTimestampAfter(customerNo, timestamp);
@@ -56,7 +60,6 @@ public class TransactionService extends AbstractService<Transaction> {
   }
 
   private Transaction createRandomTransaction() {
-    // Rastgele gönderici ve alıcı seç
     String senderCustomerNumber = getRandomElement(CUSTOMER_NUMBERS);
     String receiverCustomerNumber;
     do {
@@ -100,7 +103,6 @@ public class TransactionService extends AbstractService<Transaction> {
             .fraudulent(true)
             .build();
 
-    // Different fraud scenerios
     switch (random.nextInt(3)) {
       case 0:
         // Invalid timestamp

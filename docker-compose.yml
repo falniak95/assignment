@@ -39,12 +39,14 @@ services:
     container_name: transaction-producer
     ports:
       - "8080:8080"
+      - "9090:9090"
     networks:
       - assignment-db-dockernet
     volumes:
       - ./logs:/var/log
     environment:
       - SPRING_PROFILES_ACTIVE=docker
+      - GRPC_SERVER_PORT=9090
     depends_on:
       - core
 

@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.furkanalniak.assignment.grpc";
+
+service CustomerService {
+  rpc GetCustomerInfo (CustomerRequest) returns (CustomerResponse);
+  rpc GetBranchInfo (BranchRequest) returns (BranchResponse);
+  rpc GetTransactionInfo (TransactionRequest) returns (TransactionResponse);
+}
+
+message CustomerRequest {
+  string customerNo = 1;
+}
+
+message CustomerResponse {
+  string id = 1;
+  string name = 2;
+  string email = 3;
+}
+
+message BranchRequest {
+  string branchCode = 1;
+}
+
+message BranchResponse {
+  string branchCode = 1;
+  string branchName = 2;
+  string address = 3;
+}
+
+message TransactionRequest {
+  string transactionId = 1;
+}
+
+message TransactionResponse {
+  string transactionId = 1;
+  string amount = 2;
+  string currency = 3;
+  string receiverId = 4;
+  string senderId = 5;
+  string status = 6;
+} 

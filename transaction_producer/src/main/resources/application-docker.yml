@@ -56,6 +56,6 @@ info:
     description: Banking Transaction System Producer Service
     version: 1.0.0
 
-mongodb:
-  embedded:
-    version: 4.0.21
+grpc:
+  server:
+    port: 9090
