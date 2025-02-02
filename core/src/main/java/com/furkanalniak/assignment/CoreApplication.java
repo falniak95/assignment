@@ -1,12 +1,12 @@
-package com.furkanalniak.transaction_producer;
+package com.furkanalniak.assignment;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class TransactionProducerApplication {
+public class CoreApplication {
 
   public static void main(String[] args) {
-    SpringApplication.run(TransactionProducerApplication.class, args);
+    SpringApplication.run(CoreApplication.class, args);
   }
 }

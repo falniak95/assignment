@@ -1,10 +1,10 @@
-package com.furkanalniak.transaction_producer;
+package com.furkanalniak.assignment;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class TransactionProducerApplicationTests {
+class CoreApplicationTests {
 
   @Test
   void contextLoads() {}

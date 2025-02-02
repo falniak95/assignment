@@ -4,6 +4,8 @@ import com.furkanalniak.assignment.model.GenericEntity;
 import com.furkanalniak.assignment.repository.GenericRepository;
 import java.time.LocalDateTime;
 import java.util.UUID;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -11,6 +13,7 @@ import reactor.core.publisher.Mono;
 @Transactional(rollbackFor = Throwable.class)
 public abstract class AbstractService<E extends GenericEntity> implements GenericService<E> {
 
+  @Autowired
   protected GenericRepository<E> repository;
 
   protected String generateId() {
