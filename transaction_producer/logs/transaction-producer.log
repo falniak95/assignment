@@ -30,3 +30,24 @@
 13:56:53.145 [cluster-ClusterId{value='679f6b94cb4438155f5219db', description='null'}-194.62.251.241:5415] INFO  org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=194.62.251.241:5415, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=90261334}
 13:56:53.172 [main] INFO  com.furkanalniak.transaction_producer.TransactionProducerApplicationTests - Started TransactionProducerApplicationTests in 1.376 seconds (process running for 2.022)
 13:56:53.192 [cluster-ClusterId{value='679f6b95cb4438155f5219dc', description='null'}-194.62.251.241:5415] INFO  org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=194.62.251.241:5415, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=52158375}
+21:09:04.375 [main] INFO  com.furkanalniak.assignment.grpc.BankingServiceImpl - getCustomerInfo service called. Request: {customerNo:10000009}
+21:09:04.421 [main] INFO  com.furkanalniak.assignment.grpc.BankingServiceImpl - Customer found: Customer(customerNumber=null, firstName=Victor, lastName=Christiansen, identityNumber=null, birthDate=null, phone=null, email=sofia.andersen@email.dk, address=null, branchCode=null, registrationDate=null)
+21:09:04.426 [main] DEBUG com.furkanalniak.assignment.grpc.BankingServiceImpl - Successfully processed customer: Customer(customerNumber=null, firstName=Victor, lastName=Christiansen, identityNumber=null, birthDate=null, phone=null, email=sofia.andersen@email.dk, address=null, branchCode=null, registrationDate=null)
+21:09:04.426 [main] INFO  com.furkanalniak.assignment.grpc.BankingServiceImpl - getCustomerInfo request completed with signal: onComplete
+21:09:04.440 [main] INFO  com.furkanalniak.assignment.grpc.BankingServiceImpl - getCustomerInfo service called. Request: {customerNo:99999}
+21:09:04.441 [main] WARN  com.furkanalniak.assignment.grpc.BankingServiceImpl - Customer not found with number: 99999
+21:09:04.445 [main] INFO  com.furkanalniak.assignment.grpc.BankingServiceImpl - getCustomerInfo request completed with signal: onComplete
+21:11:15.933 [main] INFO  com.furkanalniak.assignment.grpc.BankingServiceImpl - getCustomerInfo service called. Request: {customerNo:10000009}
+21:11:16.026 [main] INFO  com.furkanalniak.assignment.grpc.BankingServiceImpl - Customer found: Customer(customerNumber=null, firstName=Victor, lastName=Christiansen, identityNumber=null, birthDate=null, phone=null, email=sofia.andersen@email.dk, address=null, branchCode=null, registrationDate=null)
+21:11:16.032 [main] DEBUG com.furkanalniak.assignment.grpc.BankingServiceImpl - Successfully processed customer: Customer(customerNumber=null, firstName=Victor, lastName=Christiansen, identityNumber=null, birthDate=null, phone=null, email=sofia.andersen@email.dk, address=null, branchCode=null, registrationDate=null)
+21:11:16.033 [main] INFO  com.furkanalniak.assignment.grpc.BankingServiceImpl - getCustomerInfo request completed with signal: onComplete
+21:11:16.062 [main] INFO  com.furkanalniak.assignment.grpc.BankingServiceImpl - getCustomerInfo service called. Request: {customerNo:99999}
+21:11:16.065 [main] WARN  com.furkanalniak.assignment.grpc.BankingServiceImpl - Customer not found with number: 99999
+21:11:16.072 [main] INFO  com.furkanalniak.assignment.grpc.BankingServiceImpl - getCustomerInfo request completed with signal: onComplete
+21:28:59.206 [main] INFO  com.furkanalniak.assignment.grpc.BankingServiceImpl - getCustomerInfo service called. Request: {customerNo:10000009}
+21:28:59.247 [main] INFO  com.furkanalniak.assignment.grpc.BankingServiceImpl - Customer found: Customer(customerNumber=null, firstName=Victor, lastName=Christiansen, identityNumber=null, birthDate=null, phone=null, email=sofia.andersen@email.dk, address=null, branchCode=null, registrationDate=null)
+21:28:59.251 [main] DEBUG com.furkanalniak.assignment.grpc.BankingServiceImpl - Successfully processed customer: Customer(customerNumber=null, firstName=Victor, lastName=Christiansen, identityNumber=null, birthDate=null, phone=null, email=sofia.andersen@email.dk, address=null, branchCode=null, registrationDate=null)
+21:28:59.251 [main] INFO  com.furkanalniak.assignment.grpc.BankingServiceImpl - getCustomerInfo request completed with signal: onComplete
+21:28:59.265 [main] INFO  com.furkanalniak.assignment.grpc.BankingServiceImpl - getCustomerInfo service called. Request: {customerNo:99999}
+21:28:59.266 [main] WARN  com.furkanalniak.assignment.grpc.BankingServiceImpl - Customer not found with number: 99999
+21:28:59.270 [main] INFO  com.furkanalniak.assignment.grpc.BankingServiceImpl - getCustomerInfo request completed with signal: onComplete
