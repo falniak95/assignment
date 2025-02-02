@@ -17,7 +17,7 @@ public class TransactionKafkaConsumer {
     private final FraudDetectionService fraudDetectionService;
 
     @Autowired
-    public TransactionKafkaConsumer(TransactionRepository transactionRepository, 
+    public TransactionKafkaConsumer(TransactionRepository transactionRepository,
                                   FraudDetectionService fraudDetectionService) {
         this.transactionRepository = transactionRepository;
         this.fraudDetectionService = fraudDetectionService;
@@ -26,7 +26,8 @@ public class TransactionKafkaConsumer {
 
     @PostConstruct
     public void init() {
-        logger.info("TransactionKafkaConsumer initialized");
+        logger.info("TransactionKafkaConsumer initialized with groupId: {} and topic: {}",
+            "${spring.kafka.consumer.group-id}", "${spring.kafka.topics.transaction-events}");
     }
 
     @KafkaListener(
@@ -35,31 +36,30 @@ public class TransactionKafkaConsumer {
         containerFactory = "kafkaListenerContainerFactory"
     )
     public void listen(Transaction transaction, Acknowledgment ack) {
+        logger.info("Received transaction: {}", transaction);
         try {
-            logger.info("Consumer started - Topic: {}, Group: {}",
-                "${spring.kafka.topics.transaction-events}", 
-                "${spring.kafka.consumer.group-id}");
-            logger.info("Received transaction with ID: {}", 
-                transaction != null ? transaction.getTransactionId() : "null");
-            
             if (transaction == null) {
                 logger.error("Received null transaction");
+                ack.acknowledge();
                 return;
             }
 
             fraudDetectionService.detectFraud(transaction)
-                .doOnSuccess(processedTransaction -> {
-                    transactionRepository.save(processedTransaction);
-                    logger.info("Successfully processed and saved transaction: {}", processedTransaction);
+                .doOnNext(processedTransaction -> 
+                    logger.info("Fraud detection completed for: {}", processedTransaction.getTransactionId()))
+                .flatMap(transactionRepository::save)
+                .doOnSuccess(savedTransaction -> {
+                    logger.info("Transaction processed and saved: {}", savedTransaction.getTransactionId());
                     ack.acknowledge();
-                    logger.info("Transaction acknowledged: {}", processedTransaction.getTransactionId());
                 })
                 .doOnError(error -> {
                     logger.error("Error processing transaction: {}", error.getMessage(), error);
+                    ack.acknowledge();
                 })
                 .subscribe();
         } catch (Exception e) {
             logger.error("Error in Kafka listener: {}", e.getMessage(), e);
+            ack.acknowledge();
         }
     }
 } 
