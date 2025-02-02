@@ -6,5 +6,5 @@ import reactor.core.publisher.Mono;
 
 @Repository
 public interface CustomerRepository extends GenericRepository<Customer> {
-  Mono<Customer> findByCustomerNumber(String customerNumber);
+  Mono<Customer> findCustomerByCustomerNumber(String customerNumber);
 }

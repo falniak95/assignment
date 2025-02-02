@@ -1,0 +1,2 @@
+mongoimport --port 5415 -u assignment-admin -p 'uF*3lviO0iaZcKTT479_t' --authenticationDatabase admin --db dbank-assignment --collection customers --file customers.json --jsonArray
+mongoimport --port 5415 -u assignment-admin -p 'uF*3lviO0iaZcKTT479_t' --authenticationDatabase admin --db dbank-assignment --collection branches --file branches.json --jsonArray
