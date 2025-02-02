@@ -1,108 +1,114 @@
-# Banking Transaction System Assignment
+# Banking Transaction System
 
-A real-time banking transaction system with fraud detection capabilities, built using modern microservices architecture.
+A real-time banking transaction system with fraud detection capabilities, built using modern microservices architecture, Kafka event streaming, and gRPC communication.
 
 ## Project Overview
 
-This assignment implements a banking transaction system focusing on real-time fraud detection in Copenhagen-based branches. The system consists of two microservices:
-- **Transaction Producer**: Handles transaction creation and Kafka message publishing
-- **Fraud Detector**: Processes transactions and performs sophisticated fraud detection
+This system implements a sophisticated banking transaction platform with real-time fraud detection for Copenhagen-based branches. The architecture consists of four main components:
+
+- **Transaction Producer**: Handles transaction creation and Kafka message publishing and GRPC communication
+- **Fraud Detector**: Processes transactions from Kafka and performs fraud detection
+- **Core Module**: Database operations, common utilities and shared models
+- **Apache Kafka**: Event streaming platform for transaction processing
+- **MongoDB**: Stores transaction and fraud detection results
 
 ## Technical Stack
 
 ### Core Technologies
-- **Java 17**: Latest LTS version for enhanced performance and features
-- **Spring Boot 3.2.3**: Modern framework for building microservices
-- **Apache Kafka**: Event streaming for real-time transaction processing
-- **MongoDB**: NoSQL database for flexible data storage
-- **Project Reactor**: Reactive programming support
-- **Docker**: Containerization and deployment
+- **Java 17**: Latest LTS version
+- **Spring Boot 3.2.3**: Microservices framework
+- **Apache Kafka**: Event streaming platform
+- **gRPC**: High-performance RPC framework
+- **MongoDB**: NoSQL database
+- **Project Reactor**: Reactive programming
+- **Docker**: Containerization
+- **Maven**: Build tool and dependency management
 
 ### Key Dependencies
-- `spring-boot-starter-web`: RESTful API support
-- `spring-kafka`: Kafka integration for event streaming
-- `spring-boot-starter-data-mongodb-reactive`: Reactive MongoDB support
+- `spring-boot-starter-web`: REST API support
+- `spring-kafka`: Kafka integration
+- `grpc-spring-boot-starter`: gRPC integration
+- `spring-boot-starter-data-mongodb-reactive`: Reactive MongoDB operations
 - `spring-boot-starter-validation`: Input validation
-- `lombok`: Boilerplate code reduction
+- `lombok`: Reduces boilerplate code
 - `spring-boot-starter-actuator`: Application monitoring
+- `protobuf`: Protocol buffers for gRPC
 - `reactor-core`: Reactive programming support
 
-## Architecture
+## Service Architecture
+
+### Ports
+- Transaction Producer: 8080 (REST), 9091 (gRPC)
+- Fraud Detector: 8081 (REST)
+- MongoDB: 5415
+- Kafka Broker: 9092 / 29092
+- Zookeeper: 2181
 
 ### Data Flow
-1. Transaction creation in Producer service
-2. Event publishing to Kafka
-3. Real-time consumption by Fraud Detector
-4. Fraud analysis and status update
-5. Result persistence in MongoDB
+1. Client sends transaction request to Transaction Producer
+2. Transaction Producer validates and processes request
+3. Producer publishes transaction to Kafka topic
+4. Fraud Detector consumes transaction from Kafka
+5. Fraud Detector performs analysis
+6. Results are stored in MongoDB
+
+## Kafka Configuration
+
+### Topics
+- `transaction-events`: Main transaction topic
+
+### Consumer Groups
+- `fraud-detector-group`: Fraud detection service consumers
 
 ## Fraud Detection System
 
-### Transaction Identifier Format
+### Transaction Format
 - Pattern: `YYYYMMDD_SENDER-BRANCH_SENDER-CUSTOMER_SEQUENCE`
 - Example: `20240131_CPH001_10000001_0001`
 
-### Fraud Detection Rules
+### Validation Rules
 
-1. **Time-based Validation**
-   - No future-dated transactions
-   - 24-hour transaction window
-   - Business hours monitoring
-   - Timestamp consistency checks
+1. **Transaction Validation**
+   - Timestamp validation
+   - Amount verification
+   - Business hours check
+   - Sequence validation
 
 2. **Branch Validation**
-   - Active branch verification
-   - Valid branch code format (CPHxxx)
-   - Branch-customer relationship validation
+   - Branch code format (CPHxxx)
+   - Active status check
+   - Operating hours verification
 
 3. **Customer Validation**
-   - Active customer status
-   - Valid customer number format
-   - Customer-branch relationship check
+   - Account status
+   - Transaction limits
+   - Relationship verification
 
-4. **Amount Pattern Analysis**
-   - Transaction limit monitoring
-   - Unusual pattern detection
-   - High-value transaction scrutiny
-
-5. **Location Analysis**
-   - Cross-branch transaction patterns
-   - Geographic consistency
-   - Multiple location access detection
-
-## Setup and Running
+## Setup and Deployment
 
 ### Prerequisites
 - JDK 17
 - Docker and Docker Compose
-- MongoDB
-- Apache Kafka
+- Maven
 
 ### Local Development
-To start the infrastructure and services:
-
-1. Start Docker containers using docker-compose
-2. Run transaction_producer service using Maven
-3. Run fraud_detector service using Maven
+1. Start the infrastructure using Docker Compose
+2. Build all services using Maven
+3. Run Transaction Producer service
+4. Run Fraud Detector service
 
 ### Docker Deployment
-Use docker-compose to deploy all services and infrastructure components together.
+Use Docker Compose to deploy all services and infrastructure components together.
+
+### Initial Data Setup
+Use the provided mongo-import script to import initial branch data.
 
 ## Monitoring
 
-- Actuator endpoints for health checks
-- Kafka monitoring through UI
-- MongoDB performance monitoring
-- Application logs and metrics
+- Actuator endpoints: `/actuator/health`
+- Swagger UI: `http://localhost:8080/swagger-ui/index.html`
+- Application metrics and logs
 
-## Future Improvements
+## Testing
 
-1. Enhanced fraud detection algorithms
-2. Machine learning integration
-3. Real-time notification system
-4. Performance optimization
-5. Additional security measures
-
-## License
-
-This project is part of a banking system assignment and is for educational purposes only. 
+- Kafka consumer/producer tests with JUnit
