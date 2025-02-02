@@ -15,6 +15,8 @@
     <properties>
         <grpc.version>1.54.0</grpc.version>
         <protobuf.version>3.21.7</protobuf.version>
+        <protobuf-plugin.version>0.6.1</protobuf-plugin.version>
+        <os-maven-plugin.version>1.7.1</os-maven-plugin.version>
     </properties>
 
     <dependencies>
@@ -108,7 +110,14 @@
             <version>${project.version}</version>
         </dependency>
 
-        <!-- GRPC Dependencies -->
+        <!-- gRPC Spring Boot Starter -->
+        <dependency>
+            <groupId>net.devh</groupId>
+            <artifactId>grpc-server-spring-boot-starter</artifactId>
+            <version>2.15.0.RELEASE</version>
+        </dependency>
+
+        <!-- gRPC Dependencies -->
         <dependency>
             <groupId>io.grpc</groupId>
             <artifactId>grpc-netty-shaded</artifactId>
@@ -123,6 +132,18 @@
             <groupId>io.grpc</groupId>
             <artifactId>grpc-stub</artifactId>
             <version>${grpc.version}</version>
+        </dependency>
+
+        <!-- Protocol Buffers Dependencies -->
+        <dependency>
+            <groupId>com.google.protobuf</groupId>
+            <artifactId>protobuf-java</artifactId>
+            <version>${protobuf.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.protobuf</groupId>
+            <artifactId>protobuf-java-util</artifactId>
+            <version>${protobuf.version}</version>
         </dependency>
 
         <!-- Jakarta Annotation API -->
@@ -146,7 +167,7 @@
             <extension>
                 <groupId>kr.motd.maven</groupId>
                 <artifactId>os-maven-plugin</artifactId>
-                <version>1.7.1</version>
+                <version>${os-maven-plugin.version}</version>
             </extension>
         </extensions>
         <plugins>
@@ -180,11 +201,14 @@
             <plugin>
                 <groupId>org.xolstice.maven.plugins</groupId>
                 <artifactId>protobuf-maven-plugin</artifactId>
-                <version>0.6.1</version>
+                <version>${protobuf-plugin.version}</version>
                 <configuration>
                     <protocArtifact>com.google.protobuf:protoc:${protobuf.version}:exe:${os.detected.classifier}</protocArtifact>
                     <pluginId>grpc-java</pluginId>
                     <pluginArtifact>io.grpc:protoc-gen-grpc-java:${grpc.version}:exe:${os.detected.classifier}</pluginArtifact>
+                    <protoSourceRoot>${project.basedir}/src/main/proto</protoSourceRoot>
+                    <outputDirectory>${project.build.directory}/generated-sources/protobuf/java</outputDirectory>
+                    <clearOutputDirectory>false</clearOutputDirectory>
                 </configuration>
                 <executions>
                     <execution>

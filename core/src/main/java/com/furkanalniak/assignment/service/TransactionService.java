@@ -71,13 +71,13 @@ public class TransactionService extends AbstractService<Transaction> {
 
     Transaction transaction =
         Transaction.builder()
-            .transactionId("TR" + System.currentTimeMillis())
+            .transactionId("DK" + System.currentTimeMillis())
             .senderCustomerNumber(senderCustomerNumber)
             .receiverCustomerNumber(receiverCustomerNumber)
             .senderBranchCode(senderBranchCode)
             .receiverBranchCode(receiverBranchCode)
             .amount(generateRandomAmount())
-            .currency("TRY")
+            .currency("DKK")
             .timestamp(LocalDateTime.now())
             .transactionIdentifier(
                 generateTransactionIdentifier(senderCustomerNumber, senderBranchCode))

@@ -3,7 +3,7 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.furkanalniak.assignment.grpc";
 
-service CustomerService {
+service BankingService {
   rpc GetCustomerInfo (CustomerRequest) returns (CustomerResponse);
   rpc GetBranchInfo (BranchRequest) returns (BranchResponse);
   rpc GetTransactionInfo (TransactionRequest) returns (TransactionResponse);
@@ -39,5 +39,4 @@ message TransactionResponse {
   string currency = 3;
   string receiverId = 4;
   string senderId = 5;
-  string status = 6;
-} 
+}

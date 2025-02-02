@@ -58,4 +58,9 @@ info:
 
 grpc:
   server:
-    port: 9090
+    port: 9091
+    address: 0.0.0.0
+    security:
+      enabled: false
+    max-inbound-message-size: 4MB
+    max-inbound-metadata-size: 4MB
