@@ -1,6 +1,6 @@
 # Banking Transaction System
 
-A real-time banking transaction system with fraud detection capabilities, built using modern microservices architecture, Kafka event streaming, and gRPC communication.
+A real-time banking transaction system with capabilities for fraud detection, suspicious transaction monitoring, and reporting to financial authorities (such as MASAK in Turkey, which tracks high-value transfers to prevent financial crimes). The system ensures seamless transaction flow by leveraging a queue-based architecture, allowing real-time detection and reporting without interrupting the transaction process. Built using a modern microservices architecture, Kafka event streaming, and gRPC communication, it provides both efficiency and compliance.
 
 ## Project Overview
 
