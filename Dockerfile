@@ -1,27 +1,30 @@
-FROM maven:3.8.4-openjdk-17 AS builder-core
-WORKDIR /app/core
-COPY core/pom.xml .
-COPY core/src ./src
+FROM maven:3.8.4-openjdk-17 AS builder
+
+# Copy parent POM first
+WORKDIR /app
+COPY pom.xml .
+
+# Copy module POMs
+COPY core/pom.xml core/
+COPY transaction_producer/pom.xml transaction_producer/
+COPY fraud_detector/pom.xml fraud_detector/
+
+# Copy source code
+COPY core/src core/src
+COPY transaction_producer/src transaction_producer/src
+COPY fraud_detector/src fraud_detector/src
+
+# Build all modules
 RUN mvn clean package -DskipTests
 
-FROM maven:3.8.4-openjdk-17 AS builder-producer
-WORKDIR /app/producer
-COPY transaction_producer/pom.xml .
-COPY transaction_producer/src ./src
-RUN mvn clean package -DskipTests
-
-FROM maven:3.8.4-openjdk-17 AS builder-detector
-WORKDIR /app/detector
-COPY fraud_detector/pom.xml .
-COPY fraud_detector/src ./src
-RUN mvn clean package -DskipTests
-
+# Final stage
 FROM openjdk:17-slim
 WORKDIR /app
 
-COPY --from=builder-core /app/core/target/*.jar core.jar
-COPY --from=builder-producer /app/producer/target/*.jar producer.jar
-COPY --from=builder-detector /app/detector/target/*.jar detector.jar
+# Copy built JARs
+COPY --from=builder /app/core/target/*.jar core.jar
+COPY --from=builder /app/transaction_producer/target/*.jar producer.jar
+COPY --from=builder /app/fraud_detector/target/*.jar detector.jar
 
 COPY mongo-seed/ /docker-entrypoint-initdb.d/
 COPY branches.json /docker-entrypoint-initdb.d/
