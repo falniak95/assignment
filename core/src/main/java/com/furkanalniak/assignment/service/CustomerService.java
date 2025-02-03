@@ -18,4 +18,8 @@ public class CustomerService extends AbstractService<Customer> {
   public Mono<Customer> findCustomerByNumber(String customerNo) {
     return customerRepository.findCustomerByCustomerNumber(customerNo);
   }
+
+  public Mono<Customer> findRandomCustomer() {
+    return customerRepository.findRandomCustomer();
+  }
 }

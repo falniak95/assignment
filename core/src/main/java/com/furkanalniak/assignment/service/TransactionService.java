@@ -19,17 +19,18 @@ import reactor.core.publisher.Mono;
 @Service
 public class TransactionService extends AbstractService<Transaction> {
   private static final Logger logger = LogManager.getLogger(TransactionService.class);
-  private static final List<String> CUSTOMER_NUMBERS =
-      Arrays.asList("10000001", "10000002", "10000003", "10000004", "10000005");
-  private static final List<String> BRANCH_CODES =
-      Arrays.asList("34001", "34002", "34003", "34004", "34005");
+
   private final TransactionRepository transactionRepository;
+  private final CustomerService customerService;
+  private final BranchService branchService;
   private final Random random = new Random();
   private final AtomicInteger sequence = new AtomicInteger(1);
 
   @Autowired
-  public TransactionService(TransactionRepository transactionRepository) {
+  public TransactionService(TransactionRepository transactionRepository, CustomerService customerService, BranchService branchService) {
     this.transactionRepository = transactionRepository;
+    this.customerService = customerService;
+    this.branchService = branchService;
   }
 
   public Mono<Transaction> findByTransactionId(String transactionId) {
@@ -42,7 +43,7 @@ public class TransactionService extends AbstractService<Transaction> {
   }
 
   public Mono<Transaction> generateRandomTransaction() {
-    return save(createRandomTransaction())
+    return transactionRepository.save(createRandomTransaction())
         .doOnNext(
             transaction -> {
               logger.info("Generated random transaction: {}", transaction.getTransactionId());
@@ -60,14 +61,14 @@ public class TransactionService extends AbstractService<Transaction> {
   }
 
   private Transaction createRandomTransaction() {
-    String senderCustomerNumber = getRandomElement(CUSTOMER_NUMBERS);
-    String receiverCustomerNumber;
+    String senderCustomerNumber = customerService.findRandomCustomer().block().getCustomerNumber();
+    String receiverCustomerNumber = customerService.findRandomCustomer().block().getCustomerNumber();
     do {
-      receiverCustomerNumber = getRandomElement(CUSTOMER_NUMBERS);
+      receiverCustomerNumber = customerService.findRandomCustomer().block().getCustomerNumber();
     } while (senderCustomerNumber.equals(receiverCustomerNumber));
 
-    String senderBranchCode = getRandomElement(BRANCH_CODES);
-    String receiverBranchCode = getRandomElement(BRANCH_CODES);
+    String senderBranchCode = branchService.findRandomBranch().block().getBranchCode();
+    String receiverBranchCode = branchService.findRandomBranch().block().getBranchCode();
 
     Transaction transaction =
         Transaction.builder()

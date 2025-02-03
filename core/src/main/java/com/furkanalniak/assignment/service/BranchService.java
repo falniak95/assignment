@@ -19,4 +19,8 @@ public class BranchService extends AbstractService<Branch> {
     return branchRepository.findByBranchCode(code.trim());
   }
 
+  public Mono<Branch> findRandomBranch() {
+    return branchRepository.findRandomBranch();
+  }
+
 }
