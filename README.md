@@ -88,17 +88,17 @@ This system implements a sophisticated banking transaction platform with real-ti
 
 ### Local Development Setup
 1. Clone the repository
-2. Start infrastructure:
-   ```bash
-   docker-compose up -d
-   ```
-3. Build all services:
-   ```bash
+2. Build all services:
+    ```bash
    mvn clean install
+   ```
+3. Build the docker compose:
+   ```bash
+   docker compose build
    ```
 4. Run services:
    ```bash
-   mvn spring-boot:run
+   docker compose up -d
    ```
 
 ### API Documentation
